@@ -13,6 +13,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
     [SerializeField] private int power;
+    private readonly float[] _offsets = { 0f, 0.25f, 0.45f };
     
     private PlayerInputReceiver _playerInputReceiver;
     
@@ -46,13 +47,13 @@ public class PlayerShooting : MonoBehaviour
                 Shoot(playerBulletPrefabA, transform.position, quaternion.identity);
                 break;
             case 2:
-                Shoot(playerBulletPrefabA, transform.position + Vector3.left * 0.1f, Quaternion.identity);
-                Shoot(playerBulletPrefabA, transform.position + Vector3.right * 0.1f, Quaternion.identity);
+                Shoot(playerBulletPrefabA, transform.position + Vector3.left * _offsets[1], Quaternion.identity);
+                Shoot(playerBulletPrefabA, transform.position + Vector3.right * _offsets[1], Quaternion.identity);
                 break;
             case 3:
-                Shoot(playerBulletPrefabA, transform.position + Vector3.left * 0.2f, Quaternion.identity);
+                Shoot(playerBulletPrefabA, transform.position + Vector3.left * _offsets[2], Quaternion.identity);
                 Shoot(playerBulletPrefabB, transform.position, quaternion.identity);
-                Shoot(playerBulletPrefabA, transform.position + Vector3.right * 0.2f, Quaternion.identity);
+                Shoot(playerBulletPrefabA, transform.position + Vector3.right * _offsets[2], Quaternion.identity);
                 break;
         }
         curShotDelay = 0;

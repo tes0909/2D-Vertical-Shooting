@@ -893,9 +893,10 @@ GameObject:
   - component: {fileID: 1493369737}
   - component: {fileID: 1493369736}
   - component: {fileID: 1493369740}
+  - component: {fileID: 1493369741}
   - component: {fileID: 1493369738}
   - component: {fileID: 1493369739}
-  - component: {fileID: 1493369741}
+  - component: {fileID: 1493369742}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1118,6 +1119,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1493369742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493369733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b14949e979bd2488f6bd245ff67c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBulletPrefabA: {fileID: 8509643827645286069, guid: 343c3b314af10284980a5494ab0a66a3, type: 3}
+  playerBulletPrefabB: {fileID: 8122908459411738360, guid: f3d60d00466353140bec904de76add25, type: 3}
+  bulletSpeed: 10
+  curShotDelay: 0
+  maxShotDelay: 0.15
+  power: 2
 --- !u!1 &1595779087
 GameObject:
   m_ObjectHideFlags: 0
