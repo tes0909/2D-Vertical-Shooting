@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerBullet_1
+      name: Player_Bullet_2
       rect:
         serializedVersion: 2
         x: 5
         y: 2
         width: 14
-        height: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbc2342791b14144b93d014524d4bc8d
-      internalID: -2074767331
+      spriteID: eb4b03deba68ff3498655ac8470268b8
+      internalID: 1806943828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBullet_0
+      name: Player_Bullet_1
       rect:
         serializedVersion: 2
         x: 29
         y: 2
         width: 14
-        height: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3873c9b0f9114cd4d8af4c8ed6f2e449
-      internalID: -2018292932
+      spriteID: 97a4499aa499b2f4fb8cd884ee764726
+      internalID: -449984894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Follow_Bullet
+      name: Follow Bullet
       rect:
         serializedVersion: 2
         x: 55
-        y: 2
+        y: 1
         width: 9
-        height: 19
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b58f3294bec9cc438da8ff902324191
-      internalID: -1634975957
+      spriteID: 901143c9d2f3ef442b6f6c69e26c435e
+      internalID: 1780744684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Bullet
+      name: Enemy Bullet
       rect:
         serializedVersion: 2
         x: 77
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 413a515efaff7e049b4dfd3514747fdb
-      internalID: -1284473377
+      spriteID: 94f4ce6962b94754197ee29aa17a0345
+      internalID: 301791412
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_Bullet: -1284473377
-      Follow_Bullet: -1634975957
-      PlayerBullet_0: -2018292932
-      PlayerBullet_1: -2074767331
+      Enemy Bullet: 301791412
+      Follow Bullet: 1780744684
+      Player_Bullet_1: -449984894
+      Player_Bullet_2: 1806943828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

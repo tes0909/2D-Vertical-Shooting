@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fface90f8bd2c9b44ae852322b71328d
+guid: 6777e2c9c8daf4c468367bb3f09f374a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,17 +123,17 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -3, y: 8.5}
-        - {x: -8, y: 3.5}
+        - {x: -8, y: 2.5}
         - {x: -8, y: -5.5}
         - {x: -1, y: -8.5}
-        - {x: 1, y: -8.5}
+        - {x: 1.4716091, y: -8.5}
         - {x: 8, y: -5.5}
-        - {x: 8, y: 3.5}
+        - {x: 8, y: 2.5}
         - {x: 3, y: 8.5}
       tessellationDetail: 0
       bones: []
-      spriteID: 8d31f924977788349857ad8fa790d4d3
-      internalID: 948424398
+      spriteID: 9435c3eb4a08ae143b2390a7b9ba26f7
+      internalID: -953968883
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
         - {x: 2.5, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: 49c00d8fe7868b9489900776cc800f5e
-      internalID: -1084664082
+      spriteID: 6e57db942fc6e8b4b831b3ea7967337a
+      internalID: 1832086252
       vertices: []
       indices: 
       edges: []
@@ -179,15 +179,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3256c17c791df8f46a00babe99c5eec4
-      internalID: 649854759
+      spriteID: 480116eaba4f0ab449a4705db8960f33
+      internalID: 1774596816
       vertices: []
       indices: 
       edges: []
@@ -207,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c41beee849d49a49a95692aab637930
-      internalID: 252427222
+      spriteID: 0c9d86569a6f99a45af4cc43b967dce9
+      internalID: 642254891
       vertices: []
       indices: 
       edges: []
@@ -228,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3fcc6c8c47f8874ea16f530fad1460d
-      internalID: -1879003705
+      spriteID: 108bc542a8b5c2043a766c71f947c7da
+      internalID: -627124857
       vertices: []
       indices: 
       edges: []
@@ -249,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6467a5a0a6fa62469c1b5ef237ad88f
-      internalID: -817256683
+      spriteID: 87ab8bdbade384e45a64443dfa6bebcd
+      internalID: -1862507940
       vertices: []
       indices: 
       edges: []
@@ -267,16 +263,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -32, y: 32}
-        - {x: -32, y: -32}
-        - {x: 32, y: -32}
-        - {x: 32, y: 30}
-        - {x: 31, y: 32}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e2e7410e36c2b948a8d82f56aace0d5
-      internalID: 1273324367
+      spriteID: 9e69d46e5bf69ec40a2031a110d3fe41
+      internalID: 1144712129
       vertices: []
       indices: 
       edges: []
@@ -285,7 +276,7 @@ TextureImporter:
       name: Enemy_Boss_Damaged
       rect:
         serializedVersion: 2
-        x: 68
+        x: 67
         y: 0
         width: 64
         height: 64
@@ -296,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feac2007d43a80e4ab509f776439f533
-      internalID: -1167041286
+      spriteID: 6cb51163b58b61b47bd74107923825cc
+      internalID: -1092135673
       vertices: []
       indices: 
       edges: []
@@ -313,14 +304,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_Boss: 1273324367
-      Enemy_Boss_Damaged: -1167041286
-      Enemy_Elite_1: -1084664082
-      Enemy_Elite_1_Damaged: -1879003705
-      Enemy_Elite_2: 649854759
-      Enemy_Elite_2_Damaged: -817256683
-      Enemy_Mini_1: 948424398
-      Enemy_Mini_1_Damaged: 252427222
+      Enemy_Boss: 1144712129
+      Enemy_Boss_Damaged: -1092135673
+      Enemy_Elite_1: 1832086252
+      Enemy_Elite_1_Damaged: -627124857
+      Enemy_Elite_2: 1774596816
+      Enemy_Elite_2_Damaged: -1862507940
+      Enemy_Mini_1: -953968883
+      Enemy_Mini_1_Damaged: 642254891
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
