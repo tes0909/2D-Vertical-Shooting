@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private string borderBullet = "BorderBullet";
+    private const string BorderBullet = "BorderBullet";
+    public int damage;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag(borderBullet))
+        if (other.gameObject.CompareTag(BorderBullet))
             Destroy(gameObject);
     }
 }

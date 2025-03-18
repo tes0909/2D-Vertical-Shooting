@@ -13,8 +13,8 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
     [SerializeField] private int power;
-    private readonly float[] _offsets = { 0f, 0.25f, 0.45f };
     
+    private readonly float[] _offsets = { 0f, 0.25f, 0.45f };
     private PlayerInputReceiver _playerInputReceiver;
     
     void Awake()
@@ -59,7 +59,7 @@ public class PlayerShooting : MonoBehaviour
         curShotDelay = 0;
     }
     
-    private void Shoot(GameObject bulletPrefab, Vector3 position,Quaternion rotation)
+    private void Shoot(GameObject bulletPrefab, Vector3 position, Quaternion rotation)
     {
         GameObject bullet = Instantiate(bulletPrefab, position, rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
