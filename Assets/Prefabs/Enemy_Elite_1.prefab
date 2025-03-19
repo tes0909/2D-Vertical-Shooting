@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2453727671267534354}
   - component: {fileID: 2839320206539583556}
   - component: {fileID: 8324821127501045473}
+  - component: {fileID: 6493317853514662384}
+  - component: {fileID: 3713151097868018834}
+  - component: {fileID: -6622901664781240370}
   m_Layer: 0
   m_Name: Enemy_Elite_1
   m_TagString: Untagged
@@ -180,6 +183,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  enemyName: L
+  player: {fileID: 0}
+--- !u!114 &6493317853514662384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535185593711337646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4684c37f762874b90f10a3d0517c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curShotDelay: 0
+  maxShotDelay: 2
+  enemyBulletPrefabA: {fileID: 8122908459411738360, guid: bf38624360cbb0a4ca5135c936287353, type: 3}
+  enemyBulletPrefabB: {fileID: 8122908459411738360, guid: c5c31c6e45946a140bd7102dfe34a4e3, type: 3}
+  bulletSpeed: 10
+--- !u!114 &3713151097868018834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535185593711337646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad662895f0b39fa45ad70bbb0326c7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6622901664781240370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535185593711337646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0765421ddce03e419e260284168b8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   health: 20
   sprites:
   - {fileID: 1832086252, guid: 6777e2c9c8daf4c468367bb3f09f374a, type: 3}

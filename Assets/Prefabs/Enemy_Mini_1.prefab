@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 6388178705563309822}
   - component: {fileID: 8449729605889517458}
   - component: {fileID: 3861003248403893909}
+  - component: {fileID: 4246706789600332492}
+  - component: {fileID: 1714791489344203546}
+  - component: {fileID: -2869431169045031036}
   m_Layer: 0
   m_Name: Enemy_Mini_1
   m_TagString: Untagged
@@ -180,6 +183,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  enemyName: S
+  player: {fileID: 0}
+--- !u!114 &4246706789600332492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901942492176667421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4684c37f762874b90f10a3d0517c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curShotDelay: 0
+  maxShotDelay: 2
+  enemyBulletPrefabA: {fileID: 8122908459411738360, guid: bf38624360cbb0a4ca5135c936287353, type: 3}
+  enemyBulletPrefabB: {fileID: 8122908459411738360, guid: c5c31c6e45946a140bd7102dfe34a4e3, type: 3}
+  bulletSpeed: 10
+--- !u!114 &1714791489344203546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901942492176667421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad662895f0b39fa45ad70bbb0326c7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2869431169045031036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901942492176667421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0765421ddce03e419e260284168b8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   health: 3
   sprites:
   - {fileID: -953968883, guid: 6777e2c9c8daf4c468367bb3f09f374a, type: 3}

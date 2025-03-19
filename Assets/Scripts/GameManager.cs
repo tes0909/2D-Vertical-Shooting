@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxSpawnTime;
     [SerializeField] private float minSpawnTimeRange = 0.5f;
     [SerializeField] private float maxSpawnTimeRange = 3f;
+
+    [Header("Default Settings")] 
+    [SerializeField] private GameObject player;
     
 
     public static GameManager Instance
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
         GameObject enemy = Instantiate(enemies[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
         Rigidbody2D rb2d = enemy.GetComponent<Rigidbody2D>();
         Enemy enemyClass = enemy.GetComponent<Enemy>();
+        enemyClass.player = player;
         
         switch (randomSpawnPoint)
         {
