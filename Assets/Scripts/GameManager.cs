@@ -66,6 +66,26 @@ public class GameManager : MonoBehaviour
     {
         var randomEnemy = Random.Range(0, enemies.Count);
         var randomSpawnPoint = Random.Range(0, spawnPoints.Count);
-        Instantiate(enemies[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+        
+        GameObject enemy = Instantiate(enemies[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+        Rigidbody2D rb2d = enemy.GetComponent<Rigidbody2D>();
+        Enemy enemyClass = enemy.GetComponent<Enemy>();
+        
+        switch (randomSpawnPoint)
+        {
+            case 5:
+            case 6:
+                enemy.transform.rotation = Quaternion.Euler(0, 0, 90);
+                rb2d.velocity = new Vector2(enemyClass.speed * 1, 1);
+                break;
+            case 7:
+            case 8:
+                enemy.transform.rotation = Quaternion.Euler(0, 0, -90);
+                rb2d.velocity = new Vector2(enemyClass.speed * -1, 1);
+                break;
+            default:
+                rb2d.velocity = Vector2.down * enemyClass.speed;
+                break;
+        }
     }
 }

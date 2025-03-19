@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] private int health;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float returnSpriteDelay = 0.1f; // 스프라이트 변경 후 지연 시간
@@ -20,9 +20,7 @@ public class Enemy : MonoBehaviour
     
     void Awake()
     {
-        _rb2d = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _rb2d.velocity = Vector2.down * speed;
     }
 
     void OnDamaged(int damage)
