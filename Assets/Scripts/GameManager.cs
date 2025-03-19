@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         var randomSpawnPoint = Random.Range(0, spawnPoints.Count);
         
         GameObject enemy = Instantiate(enemies[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+        
         Rigidbody2D rb2d = enemy.GetComponent<Rigidbody2D>();
         Enemy enemyClass = enemy.GetComponent<Enemy>();
         enemyClass.player = player;
@@ -91,5 +92,17 @@ public class GameManager : MonoBehaviour
                 rb2d.velocity = Vector2.down * enemyClass.speed;
                 break;
         }
+    }
+
+    public void PlayerRespawn()
+    {
+        StartCoroutine(PlayerRespawnCoroutine());
+    }
+
+    private IEnumerator PlayerRespawnCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        player.transform.position = new Vector3(0, -3.5f);
+        player.gameObject.SetActive(true);
     }
 }
