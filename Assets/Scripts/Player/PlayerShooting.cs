@@ -24,20 +24,20 @@ public class PlayerShooting : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerInputReceiver.OnShootEvent += ReloadShoot;
+        _playerInputReceiver.OnShootEvent += Shooting;
     }
 
     private void OnDisable()
     {
-        _playerInputReceiver.OnShootEvent -= ReloadShoot;
+        _playerInputReceiver.OnShootEvent -= Shooting;
     }
 
     private void Update()
     {
-        curShotDelay += Time.deltaTime;
+        Reload();
     }
 
-    private void ReloadShoot()
+    private void Shooting()
     {
         if (curShotDelay < maxShotDelay) return;
 
@@ -64,5 +64,10 @@ public class PlayerShooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, position, rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.up * bulletSpeed;
+    }
+
+    private void Reload()
+    {
+        curShotDelay += Time.deltaTime;
     }
 }
