@@ -8,6 +8,15 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     
+    [Header("Player Settings")] 
+    [SerializeField] private GameObject player;
+
+    [SerializeField] private int playerLife;
+    public int PlayerLife { get => playerLife; set => playerLife = value; }
+    
+    [SerializeField] private int playerScore;
+    public int PlayerScore { get => playerScore; set => playerScore = value; }
+    
     [Header("Enemy Settings")]
     [SerializeField] private List<GameObject> enemies;
     
@@ -17,10 +26,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxSpawnTime;
     [SerializeField] private float minSpawnTimeRange = 0.5f;
     [SerializeField] private float maxSpawnTimeRange = 3f;
-
-    [Header("Default Settings")] 
-    [SerializeField] private GameObject player;
-    
 
     public static GameManager Instance
     {

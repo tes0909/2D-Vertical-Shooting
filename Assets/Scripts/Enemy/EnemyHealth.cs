@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int health;
+    [SerializeField] private int enemyscore;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float returnSpriteDelay = 0.1f; // 스프라이트 변경 후 지연 시간
     
@@ -23,9 +24,13 @@ public class EnemyHealth : MonoBehaviour
         
         _spriteRenderer.sprite = sprites[_damagedSpriteIndex];
         StartCoroutine(ReturnSprite());
-        
-        if(health <= 0)
+
+        if (health <= 0)
+        {
+            GameManager.Instance.PlayerScore += enemyscore;
             Destroy(gameObject);
+        }
+            
     }
 
     private IEnumerator ReturnSprite()
