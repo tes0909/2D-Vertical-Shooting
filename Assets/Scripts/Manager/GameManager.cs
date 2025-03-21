@@ -123,6 +123,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         player.transform.position = new Vector3(0, -3.5f);
         player.gameObject.SetActive(true);
+
+        // 중복 피격 방지
+        PlayerCollision playerCollision = player.GetComponent<PlayerCollision>();
+        playerCollision.isDamaged = false;
     }
 
     public void AddScore(int score)
