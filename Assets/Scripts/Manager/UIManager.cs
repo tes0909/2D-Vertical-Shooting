@@ -43,9 +43,16 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
+        // 점수 초기화
+        ScoreUpdateUI(GameManager.Instance.PlayerScore);
+        
+        // UI 초기화
+        LifeUpdateUI(GameManager.Instance.PlayerLife);
+        
         GameManager.Instance.OnScoreChanged += ScoreUpdateUI;
         GameManager.Instance.OnLifeChanged += LifeUpdateUI;
     }
+    
 
     private void ScoreUpdateUI(int score)
     {
@@ -54,14 +61,11 @@ public class UIManager : MonoBehaviour
 
     private void LifeUpdateUI(int lifePoints)
     {
-        for (int i = 0; i < lifePoints; i++)
-        {
-            lifeImages[i].color = new Color(1, 1, 1, 0);
-        }
-
         for (int i = 0; i < lifeImages.Length; i++)
         {
-            lifeImages[i].color = new Color(1, 1, 1, 1);
+            lifeImages[i].gameObject.SetActive(i < lifePoints);
         }
+
+        Debug.Log($"LifePoint: {lifePoints}");
     }
 }

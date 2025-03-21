@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
 
     [SerializeField] private int playerLife;
-    public int PlayerLife { get; private set; }
+    public int PlayerLife { get => playerLife; private set => playerLife = value; }
     public event Action<int> OnLifeChanged;
     
     [SerializeField] private int playerScore;
@@ -123,9 +123,9 @@ public class GameManager : MonoBehaviour
         Debug.Log($"현재 점수 : {playerScore}");
     }
 
-    public void RemoveLife(int life)
+    public void RemoveLife()
     {
-        playerLife -= life;
+        playerLife--;
         OnLifeChanged?.Invoke(playerLife);
     }
 
