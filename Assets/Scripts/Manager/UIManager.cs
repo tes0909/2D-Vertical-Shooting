@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -65,7 +65,6 @@ public class UIManager : MonoBehaviour
         {
             lifeImages[i].gameObject.SetActive(i < lifePoints);
         }
-
         Debug.Log($"LifePoint: {lifePoints}");
     }
 }

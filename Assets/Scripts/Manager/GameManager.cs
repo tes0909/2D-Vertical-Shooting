@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Default Settings")]
     [SerializeField] private GameObject gameOverPanel;
+    private Button Restart;
 
     public static GameManager Instance
     {
@@ -55,12 +58,18 @@ public class GameManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        Restart = gameOverPanel.GetComponentInChildren<Button>();
+        Restart.onClick.AddListener(GameRetry);
     }
 
     private void Update()
@@ -132,5 +141,10 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+    }
+
+    private void GameRetry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
