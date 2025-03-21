@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
 
     private void ScoreUpdateUI(int score)
     {
-        scoreText.text = $"점수: {score}";
+        scoreText.text = $"점수: {score:N0}";
     }
 
     private void LifeUpdateUI(int lifePoints)
