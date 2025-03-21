@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  enemyscore: 70
   sprites:
   - {fileID: 1832086252, guid: 6777e2c9c8daf4c468367bb3f09f374a, type: 3}
   - {fileID: -627124857, guid: 6777e2c9c8daf4c468367bb3f09f374a, type: 3}

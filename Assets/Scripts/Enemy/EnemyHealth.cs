@@ -27,10 +27,9 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            GameManager.Instance.PlayerScore += enemyscore;
+            GameManager.Instance.AddScore(enemyscore);
             Destroy(gameObject);
         }
-            
     }
 
     private IEnumerator ReturnSprite()
