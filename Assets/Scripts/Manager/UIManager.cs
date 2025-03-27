@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Image[] lifeImages;
+    [SerializeField] private Image[] boomImages;
     
     public static UIManager Instance
     {
@@ -48,7 +49,7 @@ public class UIManager : MonoBehaviour
         
         // UI 초기화
         LifeUpdateUI(GameManager.Instance.PlayerLife);
-        
+
         GameManager.Instance.OnScoreChanged += ScoreUpdateUI;
         GameManager.Instance.OnLifeChanged += LifeUpdateUI;
     }
@@ -66,5 +67,14 @@ public class UIManager : MonoBehaviour
             lifeImages[i].gameObject.SetActive(i < lifePoints);
         }
         Debug.Log($"LifePoint: {lifePoints}");
+    }
+
+    public void BoomUpdateUI(int boomPoints)
+    {
+        for (int i = 0; i < boomImages.Length; i++)
+        {
+            boomImages[i].gameObject.SetActive(i < boomPoints);
+        }
+        Debug.Log($"LifePoint: {boomPoints}");
     }
 }

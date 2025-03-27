@@ -10,7 +10,6 @@ public class PlayerCollision : MonoBehaviour
     private const string Items = "Item";
     public bool isDamaged;
 
-    [SerializeField] private GameObject boomEffect;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag(Enemy) || other.gameObject.CompareTag(EnemyBullet))
@@ -35,6 +34,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Item item = other.gameObject.GetComponent<Item>();
             PlayerShooting playerShooting = GetComponent<PlayerShooting>();
+            PlayerBoom playerBoom = GetComponent<PlayerBoom>();
             switch (item.GetItemType())
             {
                 case Item.ItemType.Coin:
@@ -49,38 +49,14 @@ public class PlayerCollision : MonoBehaviour
                     break;
                 
                 case Item.ItemType.Boom:
-                    boomEffect.SetActive(true);
-                    StartCoroutine(OffBoomEffect());
-                    DestroyAllEnemies();
-                    DestroyAllBullets();
+                    if (playerBoom.CurrentBoom == playerBoom.MaxBoom)
+                        GameManager.Instance.AddScore(item.BoomScore);
+                    else
+                        playerBoom.IncreaseBoom();
                     break;
             }
             Destroy(other.gameObject);
         }
     }
 
-    private IEnumerator OffBoomEffect()
-    {
-        yield return new WaitForSeconds(0.37f);
-        boomEffect.SetActive(false);
-    }
-
-    private void DestroyAllEnemies()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (var enemy in enemies)
-        {
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamaged(1000);
-        }
-    }
-
-    private void DestroyAllBullets()
-    {
-        GameObject[] bullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
-        foreach (var bullet in bullets)
-        {
-            Destroy(bullet);
-        }
-    }
 }

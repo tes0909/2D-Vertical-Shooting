@@ -15,8 +15,10 @@ public class Item : MonoBehaviour
     [SerializeField] private float itemSpeed = 0.1f;
     [SerializeField] private int itemCoinScore = 1000;
     [SerializeField] private int itemPowerScore = 500;
+    [SerializeField] private int itemBoomScore = 500;
     public int CoinScore => itemCoinScore;
     public int PowerScore => itemPowerScore; 
+    public int BoomScore => itemBoomScore;
     
     private Rigidbody2D _rigidbody2D;
     void Awake()
