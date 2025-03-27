@@ -8,6 +8,7 @@ public class PlayerInputReceiver : MonoBehaviour
 {
     public event Action<Vector2> OnMoveEvent;
     public event Action OnShootEvent;
+    public event Action OnBoomEvent;
     private Camera _mainCamera;
     
     void Awake()
@@ -24,5 +25,10 @@ public class PlayerInputReceiver : MonoBehaviour
     public void OnShoot(InputValue value)
     {
         OnShootEvent?.Invoke();
+    }
+
+    public void OnBoom(InputValue value)
+    {
+        OnBoomEvent?.Invoke();
     }
 }

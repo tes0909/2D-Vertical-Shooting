@@ -12,7 +12,9 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
-    [SerializeField] private int power;
+    
+    public int Power { get; private set; }
+    public int MaxPower { get; private set; }
     
     private readonly float[] _offsets = { 0f, 0.25f, 0.45f };
     private PlayerInputReceiver _playerInputReceiver;
@@ -20,6 +22,8 @@ public class PlayerShooting : MonoBehaviour
     void Awake()
     {
         _playerInputReceiver = GetComponent<PlayerInputReceiver>();
+        Power = 1;
+        MaxPower = 3;
     }
 
     private void OnEnable()
@@ -36,12 +40,13 @@ public class PlayerShooting : MonoBehaviour
     {
         Reload();
     }
+    
 
     private void Shooting()
     {
         if (curShotDelay < maxShotDelay) return;
 
-        switch (power)
+        switch (Power)
         {
             case 1:
                 Shoot(playerBulletPrefabA, transform.position, quaternion.identity);
@@ -66,8 +71,15 @@ public class PlayerShooting : MonoBehaviour
         rb.velocity = Vector2.up * bulletSpeed;
     }
 
+
     private void Reload()
     {
         curShotDelay += Time.deltaTime;
+    }
+
+    public void IncreasePower()
+    {
+        if(Power < MaxPower)
+            Power++;
     }
 }
