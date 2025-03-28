@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Enemy Settings")]
     [SerializeField] private List<GameObject> enemies;
+    [SerializeField] private List<ObjectManager.PoolType> enemiesTypes;
     
     [Header("Spawn Settings")]
     [SerializeField] private List<Transform> spawnPoints;
@@ -88,8 +89,10 @@ public class GameManager : MonoBehaviour
     {
         var randomEnemy = Random.Range(0, enemies.Count);
         var randomSpawnPoint = Random.Range(0, spawnPoints.Count);
-        
-        GameObject enemy = Instantiate(enemies[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+
+        ObjectManager.PoolType selectEnemiesType = enemiesTypes[randomEnemy];
+        GameObject enemy = ObjectManager.Instance.GetObject(selectEnemiesType);
+        enemy.transform.position = spawnPoints[randomSpawnPoint].position;
         
         Rigidbody2D rb2d = enemy.GetComponent<Rigidbody2D>();
         Enemy enemyClass = enemy.GetComponent<Enemy>();

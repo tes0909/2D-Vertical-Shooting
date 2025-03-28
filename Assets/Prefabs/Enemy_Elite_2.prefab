@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 6272514132985935674}
   - component: {fileID: -7252527334887484833}
   - component: {fileID: 3876013663244203590}
+  - component: {fileID: 6148380775578833506}
+  - component: {fileID: -7793071406031571177}
   m_Layer: 0
   m_Name: Enemy_Elite_2
   m_TagString: Enemy
@@ -177,6 +179,7 @@ MonoBehaviour:
   speed: 1
   enemyName: L
   player: {fileID: 0}
+  type: 1
 --- !u!114 &6272514132985935674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +227,31 @@ MonoBehaviour:
   - {fileID: 1774596816, guid: 6777e2c9c8daf4c468367bb3f09f374a, type: 3}
   - {fileID: -1862507940, guid: 6777e2c9c8daf4c468367bb3f09f374a, type: 3}
   returnSpriteDelay: 0.1
+--- !u!114 &6148380775578833506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706036619452556702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc36d282c2409ff42a4e119dca450afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemGoldCoin: {fileID: 7911570475181525500, guid: 9d15cef67a9bbd841a71bcc82751bf0d, type: 3}
+  itemPowerUp: {fileID: 1486281606100591302, guid: 7b9b83dbbbe75a947bbc782714d4c66e, type: 3}
+  itemBoom: {fileID: 5530036958942026327, guid: e0ffa3f57d02d874e86c04699f5f8e1e, type: 3}
+--- !u!114 &-7793071406031571177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706036619452556702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cc06efbeb889742b20ab54132eb1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0

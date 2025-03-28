@@ -31,7 +31,7 @@ public class PlayerBoom : MonoBehaviour
 
     private void ActiveBoom()
     {
-        if (isBoomActive) return; // 현재 활성화 중인경우
+        if(isBoomActive) return; // 현재 활성화 중인경우
         
         if(CurrentBoom == 0) return;
 

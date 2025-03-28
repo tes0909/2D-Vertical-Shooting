@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 332833230075719135}
   - component: {fileID: 8503742006325484710}
   - component: {fileID: 4269453355586830998}
+  - component: {fileID: 8788393067954632075}
   m_Layer: 0
-  m_Name: PowerUp
+  m_Name: ItemPowerUp
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0305f0c9f38e99c41a5956e8068a26d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   itemSpeed: 0.1
   itemCoinScore: 1000
   itemPowerScore: 500
@@ -206,3 +207,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8788393067954632075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486281606100591302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cc06efbeb889742b20ab54132eb1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 8

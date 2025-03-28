@@ -5,8 +5,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public enum EnemyType
+    {
+        Small,
+        Large
+    }
+    
     public float speed;
-    public string enemyName;
     public GameObject player;
     
+    [SerializeField] private EnemyType type;
+
+    public EnemyType GetEnemyType()
+    {
+        return type;
+    }
 }

@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 4246706789600332492}
   - component: {fileID: 1714791489344203546}
   - component: {fileID: -2869431169045031036}
+  - component: {fileID: 5990038706413230310}
+  - component: {fileID: 1208214202757799248}
   m_Layer: 0
   m_Name: Enemy_Mini_1
   m_TagString: Enemy
@@ -232,3 +234,31 @@ MonoBehaviour:
   - {fileID: -953968883, guid: 6777e2c9c8daf4c468367bb3f09f374a, type: 3}
   - {fileID: 642254891, guid: 6777e2c9c8daf4c468367bb3f09f374a, type: 3}
   returnSpriteDelay: 0.1
+--- !u!114 &5990038706413230310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901942492176667421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc36d282c2409ff42a4e119dca450afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemGoldCoin: {fileID: 7911570475181525500, guid: 9d15cef67a9bbd841a71bcc82751bf0d, type: 3}
+  itemPowerUp: {fileID: 1486281606100591302, guid: 7b9b83dbbbe75a947bbc782714d4c66e, type: 3}
+  itemBoom: {fileID: 5530036958942026327, guid: e0ffa3f57d02d874e86c04699f5f8e1e, type: 3}
+--- !u!114 &1208214202757799248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901942492176667421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cc06efbeb889742b20ab54132eb1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0

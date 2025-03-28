@@ -28,7 +28,7 @@ public class PlayerCollision : MonoBehaviour
                 GameManager.Instance.PlayerRespawn();
             }
             gameObject.SetActive(false);
-            Destroy(other.gameObject);
+            other.GetComponent<ReturnObject>()?.ReturnObj();
         }
         else if (other.gameObject.CompareTag(Items))
         {

@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] private GameObject playerBulletPrefabA;
-    [SerializeField] private GameObject playerBulletPrefabB;
-    
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
@@ -49,24 +46,25 @@ public class PlayerShooting : MonoBehaviour
         switch (Power)
         {
             case 1:
-                Shoot(playerBulletPrefabA, transform.position, quaternion.identity);
+                Shoot(ObjectManager.PoolType.PlayerBullet1, transform.position, quaternion.identity);
                 break;
             case 2:
-                Shoot(playerBulletPrefabA, transform.position + Vector3.left * _offsets[1], Quaternion.identity);
-                Shoot(playerBulletPrefabA, transform.position + Vector3.right * _offsets[1], Quaternion.identity);
+                Shoot(ObjectManager.PoolType.PlayerBullet1, transform.position + Vector3.left * _offsets[1], Quaternion.identity);
+                Shoot(ObjectManager.PoolType.PlayerBullet1, transform.position + Vector3.right * _offsets[1], Quaternion.identity);
                 break;
             case 3:
-                Shoot(playerBulletPrefabA, transform.position + Vector3.left * _offsets[2], Quaternion.identity);
-                Shoot(playerBulletPrefabB, transform.position, quaternion.identity);
-                Shoot(playerBulletPrefabA, transform.position + Vector3.right * _offsets[2], Quaternion.identity);
+                Shoot(ObjectManager.PoolType.PlayerBullet1, transform.position + Vector3.left * _offsets[2], Quaternion.identity);
+                Shoot(ObjectManager.PoolType.PlayerBullet2, transform.position, quaternion.identity);
+                Shoot(ObjectManager.PoolType.PlayerBullet1, transform.position + Vector3.right * _offsets[2], Quaternion.identity);
                 break;
         }
         curShotDelay = 0;
     }
     
-    private void Shoot(GameObject bulletPrefab, Vector3 position, Quaternion rotation)
+    private void Shoot(ObjectManager.PoolType bulletPrefab, Vector3 position, Quaternion rotation)
     {
-        GameObject bullet = Instantiate(bulletPrefab, position, rotation);
+        GameObject bullet = ObjectManager.Instance.GetObject(bulletPrefab);
+        bullet.transform.position = transform.position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.up * bulletSpeed;
     }

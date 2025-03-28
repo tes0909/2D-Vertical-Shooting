@@ -15,13 +15,16 @@ public class EnemyCollision : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag(_borderBullet)) // 외벽
-            Destroy(gameObject);
+        if (other.CompareTag(_borderBullet)) // 외벽과 충돌
+        {
+            GetComponent<ReturnObject>()?.ReturnObj(); // => 몬스터 반환
+            transform.rotation = Quaternion.identity;
+        }
         else if (other.CompareTag(_playerBullet)) // 플레이어 총알
         {
             Bullet bullet = other.GetComponent<Bullet>();
             _enemyHealth.TakeDamaged(bullet.damage);
-            Destroy(other.gameObject); 
+            other.GetComponent<ReturnObject>()?.ReturnObj(); // => 총알 반환
         }
     }
 }

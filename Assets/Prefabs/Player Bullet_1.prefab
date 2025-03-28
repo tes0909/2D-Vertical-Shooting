@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4634973373184596647}
   - component: {fileID: 7792473238793834109}
   - component: {fileID: 3751858397362927201}
+  - component: {fileID: 8899192610800993733}
   m_Layer: 0
   m_Name: Player Bullet_1
   m_TagString: PlayerBullet
@@ -172,3 +173,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &8899192610800993733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509643827645286069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cc06efbeb889742b20ab54132eb1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 3
