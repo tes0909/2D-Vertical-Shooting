@@ -24,7 +24,6 @@ public class Item : MonoBehaviour
     
     private Rigidbody2D _rb2d;
     
-
     private void Awake()
     {
         _rb2d = GetComponent<Rigidbody2D>();

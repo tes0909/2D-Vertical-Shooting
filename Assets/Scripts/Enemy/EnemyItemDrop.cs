@@ -34,7 +34,5 @@ public class EnemyItemDrop : MonoBehaviour
     {
         GameObject item = ObjectManager.Instance.GetObject(poolType);
         item.transform.position = transform.position;
-        Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down * dropItemSpeed;
     }
 }
