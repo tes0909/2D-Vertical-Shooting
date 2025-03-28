@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,15 +17,22 @@ public class Item : MonoBehaviour
     [SerializeField] private int itemCoinScore = 1000;
     [SerializeField] private int itemPowerScore = 500;
     [SerializeField] private int itemBoomScore = 500;
+    [SerializeField] private float dropItemSpeed = 1f;
     public int CoinScore => itemCoinScore;
     public int PowerScore => itemPowerScore; 
     public int BoomScore => itemBoomScore;
     
-    private Rigidbody2D _rigidbody2D;
-    void Awake()
+    private Rigidbody2D _rb2d;
+    
+
+    private void Awake()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _rigidbody2D.velocity = Vector2.down * itemSpeed;
+        _rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        _rb2d.velocity = Vector2.down * dropItemSpeed;
     }
 
     public ItemType GetItemType()
