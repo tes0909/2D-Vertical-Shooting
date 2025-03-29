@@ -7,7 +7,6 @@ public class EnemyItemDrop : MonoBehaviour
     [SerializeField] private GameObject itemGoldCoin;
     [SerializeField] private GameObject itemPowerUp;
     [SerializeField] private GameObject itemBoom;
-    [SerializeField] private float dropItemSpeed;
     public void ItemDrop()
     {
         float rand = Random.value;

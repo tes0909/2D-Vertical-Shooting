@@ -55,7 +55,7 @@ public class PlayerCollision : MonoBehaviour
                         playerBoom.IncreaseBoom();
                     break;
             }
-            Destroy(other.gameObject);
+            other.GetComponent<ReturnObject>()?.ReturnObj();
         }
     }
 

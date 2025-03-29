@@ -75,4 +75,10 @@ public class ObjectManager : MonoBehaviour
         obj.SetActive(false);
         PoolDictionary[key].Enqueue(obj);
     }
+
+    // 해당 풀 타입의 모든 오브젝트를 가져옴
+    public GameObject[] GetObjects(PoolType key)
+    {
+        return PoolDictionary[key].ToArray(); // 큐를 배열로 반환
+    }
 }

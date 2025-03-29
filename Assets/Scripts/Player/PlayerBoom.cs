@@ -66,20 +66,43 @@ public class PlayerBoom : MonoBehaviour
 
     private void DestroyAllEnemies()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (var enemy in enemies)
+        ObjectManager.PoolType[] enemyTypes =
         {
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamaged(1000);
+            ObjectManager.PoolType.EnemyMini1, ObjectManager.PoolType.EnemyElite1, ObjectManager.PoolType.EnemyElite2
+        }; // 적 종류
+        
+        foreach (var type in enemyTypes)
+        { 
+            GameObject[] enemies = ObjectManager.Instance.GetObjects(type); // 해당 타입에 해당되는 enemy 모두 가져옴
+
+            foreach (var enemy in enemies) // 배열로 가져온 enemy 각 개체에 접근 
+            {
+                if (enemy.activeSelf)
+                {
+                    enemy.GetComponent<EnemyHealth>()?.TakeDamaged(1000);
+                }
+            }
         }
     }
 
     private void DestroyAllBullets()
     {
-        GameObject[] bullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
-        foreach (var bullet in bullets)
+        ObjectManager.PoolType[] bulletTypes =
         {
-            Destroy(bullet);
+            ObjectManager.PoolType.EnemyBullet1, ObjectManager.PoolType.EnemyBullet2
+        };
+
+        foreach (var type in bulletTypes)
+        {
+            GameObject[] bullets = ObjectManager.Instance.GetObjects(type);
+
+            foreach (var bullet in bullets)
+            {
+                if (bullet.activeSelf)
+                {
+                    bullet.GetComponent<ReturnObject>()?.ReturnObj();
+                }
+            }
         }
     }
 }
