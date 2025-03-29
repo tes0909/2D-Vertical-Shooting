@@ -64,7 +64,7 @@ public class PlayerShooting : MonoBehaviour
     private void Shoot(ObjectManager.PoolType bulletPrefab, Vector3 position, Quaternion rotation)
     {
         GameObject bullet = ObjectManager.Instance.GetObject(bulletPrefab);
-        bullet.transform.position = transform.position;
+        bullet.transform.position = position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.up * bulletSpeed;
     }

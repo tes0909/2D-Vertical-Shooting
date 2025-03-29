@@ -7,8 +7,6 @@ public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
-    [SerializeField] private GameObject enemyBulletPrefabA;
-    [SerializeField] private GameObject enemyBulletPrefabB;
     [SerializeField] private float bulletSpeed = 10f;
     private Enemy _enemy;
 
@@ -43,7 +41,7 @@ public class EnemyAttack : MonoBehaviour
     private void Shoot(ObjectManager.PoolType bulletPrefab, Vector3 position, Quaternion rotation)
     {
         GameObject bullet = ObjectManager.Instance.GetObject(bulletPrefab);
-        bullet.transform.position = transform.position;
+        bullet.transform.position = position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         Vector3 direction = _enemy.player.transform.position - transform.position;
         rb.velocity = direction.normalized * bulletSpeed;
