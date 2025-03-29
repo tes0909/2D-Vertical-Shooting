@@ -136,7 +136,6 @@ public class GameManager : MonoBehaviour
     {
         playerScore += score;
         OnScoreChanged?.Invoke(playerScore);
-        Debug.Log($"현재 점수 : {playerScore}");
     }
 
     public void RemoveLife()

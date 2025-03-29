@@ -31,13 +31,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamaged(int damage)
     {
-        if(health <= 0) return;
-        health -= damage;
-        
+        if(_currentHealth <= 0) return;
+        _currentHealth -= damage;
+
         _spriteRenderer.sprite = sprites[_damagedSpriteIndex];
         StartCoroutine(ReturnSprite());
 
-        if (health <= 0)
+        if (_currentHealth <= 0)
         {
             GameManager.Instance.AddScore(enemyscore);
             _enemyItemDrop.ItemDrop();

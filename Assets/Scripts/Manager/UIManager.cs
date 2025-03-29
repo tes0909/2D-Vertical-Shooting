@@ -66,7 +66,6 @@ public class UIManager : MonoBehaviour
         {
             lifeImages[i].gameObject.SetActive(i < lifePoints);
         }
-        Debug.Log($"LifePoint: {lifePoints}");
     }
 
     public void BoomUpdateUI(int boomPoints)

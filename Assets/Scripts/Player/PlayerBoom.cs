@@ -15,7 +15,7 @@ public class PlayerBoom : MonoBehaviour
     void Awake()
     {
         _playerInputReceiver = GetComponent<PlayerInputReceiver>();
-        CurrentBoom = 0;
+        CurrentBoom = 1;
         MaxBoom = 2;
     }
 
@@ -79,7 +79,7 @@ public class PlayerBoom : MonoBehaviour
             {
                 if (enemy.activeSelf)
                 {
-                    enemy.GetComponent<EnemyHealth>()?.TakeDamaged(1000);
+                    enemy.GetComponent<EnemyHealth>()?.TakeDamaged(int.MaxValue);
                 }
             }
         }

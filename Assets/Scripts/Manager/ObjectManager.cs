@@ -30,7 +30,8 @@ public class ObjectManager : MonoBehaviour
     
     public List<Pool> PoolList;
     private Dictionary<PoolType, Queue<GameObject>> PoolDictionary = new Dictionary<PoolType, Queue<GameObject>>();
-
+    private Dictionary<PoolType, List<GameObject>> ActiveObject = new Dictionary<PoolType, List<GameObject>>(); // 활성화 오브젝트 리스트
+    
     private void Awake()
     {
         if (Instance == null)
@@ -41,11 +42,11 @@ public class ObjectManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
         foreach (var pool in PoolList)
         {
             Queue<GameObject> queue = new Queue<GameObject>();
-
+            List<GameObject> list = new List<GameObject>(); // 활성화 오브젝트(List) 타입 생성
+            
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
@@ -53,6 +54,7 @@ public class ObjectManager : MonoBehaviour
                 queue.Enqueue(obj);
             }
             PoolDictionary.Add(pool.key, queue);
+            ActiveObject.Add(pool.key, list);
         }
     }
 
@@ -62,6 +64,7 @@ public class ObjectManager : MonoBehaviour
         {
             GameObject obj = PoolDictionary[key].Dequeue();
             obj.SetActive(true);
+            ActiveObject[key].Add(obj);
             return obj;
         }
 
@@ -74,11 +77,12 @@ public class ObjectManager : MonoBehaviour
         
         obj.SetActive(false);
         PoolDictionary[key].Enqueue(obj);
+        ActiveObject[key].Remove(obj);
     }
 
     // 해당 풀 타입의 모든 오브젝트를 가져옴
     public GameObject[] GetObjects(PoolType key)
     {
-        return PoolDictionary[key].ToArray(); // 큐를 배열로 반환
+        return ActiveObject[key].ToArray(); // 큐를 배열로 반환
     }
 }
