@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fighter jet-sheet_0
+      name: fighter jet-proto_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +118,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fighter jet-sheet_1
+      name: fighter jet-proto_1
       rect:
         serializedVersion: 2
         x: 33
@@ -139,7 +139,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fighter jet-sheet_2
+      name: fighter jet-proto_2
       rect:
         serializedVersion: 2
         x: 66
@@ -160,7 +160,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fighter jet-sheet_3
+      name: fighter jet-proto_3
       rect:
         serializedVersion: 2
         x: 99
@@ -181,7 +181,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fighter jet-sheet_0: 1372579846
-      fighter jet-sheet_1: 539713219
-      fighter jet-sheet_2: -1285850137
-      fighter jet-sheet_3: -668952218
+      fighter jet-proto_0: 1372579846
+      fighter jet-proto_1: 539713219
+      fighter jet-proto_2: -1285850137
+      fighter jet-proto_3: -668952218
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
