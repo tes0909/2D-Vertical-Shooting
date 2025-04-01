@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 8297093570610375232}
   - component: {fileID: 475561833422824308}
   - component: {fileID: 2237191145378781813}
-  - component: {fileID: 6272514132985935674}
   - component: {fileID: -7252527334887484833}
   - component: {fileID: 3876013663244203590}
   - component: {fileID: 6148380775578833506}
   - component: {fileID: -7793071406031571177}
+  - component: {fileID: 1615973222149252509}
   m_Layer: 0
   m_Name: Enemy_Elite_2
   m_TagString: Enemy
@@ -178,22 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 0}
-  type: 1
---- !u!114 &6272514132985935674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706036619452556702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4684c37f762874b90f10a3d0517c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curShotDelay: 0
-  maxShotDelay: 2
-  bulletSpeed: 10
 --- !u!114 &-7252527334887484833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,3 +236,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 2
+--- !u!114 &1615973222149252509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706036619452556702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77036a27d5021dc4d8b912974fd6494d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curShotDelay: 0
+  maxShotDelay: 3
+  bulletSpeed: 10

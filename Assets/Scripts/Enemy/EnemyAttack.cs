@@ -3,42 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public abstract class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private float curShotDelay;
-    [SerializeField] private float maxShotDelay;
-    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] protected float curShotDelay;
+    [SerializeField] protected float maxShotDelay;
+    [SerializeField] protected float bulletSpeed = 10f;
     private Enemy _enemy;
 
-    private void Start()
+    protected virtual void Start()
     {
         _enemy = GetComponent<Enemy>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         Shooting();
         Reload();
     }
-    
-    private void Shooting()
-    {
-        if (curShotDelay < maxShotDelay) return;
 
-        switch (_enemy.GetEnemyType())
-        {
-            case Enemy.EnemyType.Small:
-                Shoot(ObjectManager.PoolType.EnemyBullet1, transform.position + new Vector3(-0.4f, 0.2f), Quaternion.identity);
-                Shoot(ObjectManager.PoolType.EnemyBullet1, transform.position + new Vector3(0.4f, 0.2f), Quaternion.identity);
-                break;
-            case Enemy.EnemyType.Large:
-                Shoot(ObjectManager.PoolType.EnemyBullet2, transform.position, Quaternion.identity);
-                break;
-        }
-        curShotDelay = 0;
-    }
+    protected abstract void Shooting();
     
-    private void Shoot(ObjectManager.PoolType bulletPrefab, Vector3 position, Quaternion rotation)
+    protected void Shoot(ObjectManager.PoolType bulletPrefab, Vector3 position, Quaternion rotation)
     {
         GameObject bullet = ObjectManager.Instance.GetObject(bulletPrefab);
         bullet.transform.position = position;
@@ -47,7 +32,7 @@ public class EnemyAttack : MonoBehaviour
         rb.velocity = direction.normalized * bulletSpeed;
     }
     
-    private void Reload()
+    protected void Reload()
     {
         curShotDelay += Time.deltaTime;
     }
