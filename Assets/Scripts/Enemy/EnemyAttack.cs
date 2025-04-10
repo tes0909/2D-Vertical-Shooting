@@ -31,8 +31,8 @@ public abstract class EnemyAttack : MonoBehaviour
         Vector3 direction = _enemy.player.transform.position - transform.position;
         rb.velocity = direction.normalized * bulletSpeed;
     }
-    
-    protected void Reload()
+
+    private void Reload()
     {
         curShotDelay += Time.deltaTime;
     }

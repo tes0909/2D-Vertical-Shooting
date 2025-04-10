@@ -12,7 +12,6 @@ public class JetFly : MonoBehaviour
         ResetPosition();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

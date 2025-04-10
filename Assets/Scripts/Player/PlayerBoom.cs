@@ -11,7 +11,6 @@ public class PlayerBoom : MonoBehaviour
     public int MaxBoom { get; private set; }
     public bool isBoomActive;
     [SerializeField] private GameObject boomEffect;
-    public event Action<int> OnBoomChanged;
     void Awake()
     {
         _playerInputReceiver = GetComponent<PlayerInputReceiver>();
