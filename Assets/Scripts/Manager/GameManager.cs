@@ -23,14 +23,16 @@ public class GameManager : MonoBehaviour
     
     [Header("Enemy Settings")]
     [SerializeField] private List<GameObject> enemies;
-    [SerializeField] private List<ObjectManager.PoolType> enemiesTypes;
+    //[SerializeField] private List<ObjectManager.PoolType> enemiesTypes;
+    public DataManager.MonsterDataList monsterDataList;
     
     [Header("Spawn Settings")]
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private float curSpawnTime;
-    [SerializeField] private float maxSpawnTime;
-    [SerializeField] private float minSpawnTimeRange = 0.5f;
-    [SerializeField] private float maxSpawnTimeRange = 3f;
+    [SerializeField] private int currentSpawnIndex;
+    //[SerializeField] private float maxSpawnTime;
+    //[SerializeField] private float minSpawnTimeRange = 0.5f;
+    //[SerializeField] private float maxSpawnTimeRange = 3f;
     
     [Header("Default Settings")]
     [SerializeField] private GameObject gameOverPanel;
@@ -71,34 +73,35 @@ public class GameManager : MonoBehaviour
     {
         Restart = gameOverPanel.GetComponentInChildren<Button>();
         Restart.onClick.AddListener(GameRetry);
+        
+        DataManager.Instance.SaveData(monsterDataList);
+        //monsterDataList = DataManager.Instance.LoadData<DataManager.MonsterDataList>();
     }
 
     private void Update()
     {
+        if(monsterDataList == null || monsterDataList.monsterData == null || currentSpawnIndex >= monsterDataList.monsterData.Count) return;
         curSpawnTime += Time.deltaTime;
 
-        if (curSpawnTime > maxSpawnTime)
+        var next = monsterDataList.monsterData[currentSpawnIndex];
+        if (curSpawnTime > next.spawnDelay)
         {
-            SpawnEnemy();
-            maxSpawnTime = Random.Range(minSpawnTimeRange, maxSpawnTimeRange);
+            SpawnEnemy(next);
             curSpawnTime = 0;
+            currentSpawnIndex++;
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(DataManager.MonsterData monsterData)
     {
-        var randomEnemy = Random.Range(0, enemies.Count);
-        var randomSpawnPoint = Random.Range(0, spawnPoints.Count);
-
-        ObjectManager.PoolType selectEnemiesType = enemiesTypes[randomEnemy];
-        GameObject enemy = ObjectManager.Instance.GetObject(selectEnemiesType);
-        enemy.transform.position = spawnPoints[randomSpawnPoint].position;
+        GameObject enemy = ObjectManager.Instance.GetObject(monsterData.type);
+        enemy.transform.position = spawnPoints[monsterData.spawnPoint].position;
         
         Rigidbody2D rb2d = enemy.GetComponent<Rigidbody2D>();
         Enemy enemyClass = enemy.GetComponent<Enemy>();
         enemyClass.player = player;
         
-        switch (randomSpawnPoint)
+        switch (monsterData.spawnPoint)
         {
             case 5:
             case 6:
@@ -147,10 +150,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     private void GameRetry()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
