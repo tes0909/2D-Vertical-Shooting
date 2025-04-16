@@ -2972,6 +2972,15 @@ MonoBehaviour:
     - spawnDelay: 0.4
       spawnPoint: 1
       type: 0
+    - spawnDelay: 1
+      spawnPoint: 2
+      type: 1
+    - spawnDelay: 1
+      spawnPoint: 2
+      type: 1
+    - spawnDelay: 1
+      spawnPoint: 2
+      type: 2
   spawnPoints:
   - {fileID: 1237067318}
   - {fileID: 2106595782}
