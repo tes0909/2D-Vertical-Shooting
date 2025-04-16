@@ -12,15 +12,15 @@ public class EnemyItemDrop : MonoBehaviour
     {
         float rand = Random.value;
 
-        if (rand < 0.2f)
+        if (rand < 0.25f)
         {
             Debug.Log("Item has not been dropped");
         }
-        else if (rand < 0.5f)
+        else if (rand < 0.55f)
         {
             DropItem(ObjectManager.PoolType.ItemGoldCoin);
         }
-        else if (rand < 0.8f)
+        else if (rand < 0.7f)
         {
             DropItem(ObjectManager.PoolType.ItemPowerUp);
         }

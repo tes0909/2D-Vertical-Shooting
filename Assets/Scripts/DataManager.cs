@@ -36,7 +36,6 @@ public class DataManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
     
     public void SaveData<T>(T saveData)
