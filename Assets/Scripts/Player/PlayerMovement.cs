@@ -25,14 +25,13 @@ public class PlayerMovement : MonoBehaviour
     {
         _movementDirection = direction;
     }
+    void ApplyMovement()
+    {
+        _rb2d.velocity = _movementDirection * speed;
+    }
 
     void FixedUpdate()
     {
-        ApplyMovement(_movementDirection);
-    }
-
-    void ApplyMovement(Vector2 direction)
-    {
-        _rb2d.velocity = _movementDirection * speed;
+        ApplyMovement();
     }
 }
