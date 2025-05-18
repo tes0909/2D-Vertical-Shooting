@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5177507492043307471}
   - component: {fileID: 8618008160305004993}
   - component: {fileID: 8546393302196629733}
-  - component: {fileID: 6679095972020333891}
+  - component: {fileID: -6778764722430137664}
   m_Layer: 0
-  m_Name: Enemy Bullet_2
+  m_Name: Enemy Bullet_1
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
---- !u!114 &6679095972020333891
+--- !u!114 &-6778764722430137664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,4 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cc06efbeb889742b20ab54132eb1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 6
+  poolType: 0

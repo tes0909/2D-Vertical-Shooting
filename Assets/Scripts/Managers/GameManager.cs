@@ -11,12 +11,12 @@ public class GameManager : Singleton<GameManager>
     [Header("Player Settings")] 
     [SerializeField] private GameObject player;
 
-    [SerializeField] private int playerLife;
-    public int PlayerLife { get => playerLife; private set => playerLife = value; }
+    [SerializeField] private int playerLife = 3;
+    public int PlayerLife => playerLife;
     public event Action<int> OnLifeChanged;
     
     [SerializeField] private int playerScore;
-    public int PlayerScore { get; private set; }
+    public int PlayerScore => playerScore;
     public event Action<int> OnScoreChanged; 
     
     [Header("Enemy Settings")]

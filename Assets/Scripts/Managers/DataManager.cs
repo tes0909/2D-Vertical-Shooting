@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class DataManager : Singleton<DataManager>
 {
-
     public void SaveData<T>(T saveData)
     {
         string json = JsonUtility.ToJson(saveData);
