@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    private static GameManager _instance;
-    
     [Header("Player Settings")] 
     [SerializeField] private GameObject player;
 
@@ -33,37 +31,6 @@ public class GameManager : MonoBehaviour
     [Header("Default Settings")]
     [SerializeField] private GameObject gameOverPanel;
     private Button Restart;
-
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<GameManager>();
-                
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject("GameManager");
-                    _instance = obj.AddComponent<GameManager>();
-                }
-            }
-            return _instance;
-        }
-    }
-
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void Start()
     {

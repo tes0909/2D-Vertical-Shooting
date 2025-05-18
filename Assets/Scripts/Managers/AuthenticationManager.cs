@@ -10,42 +10,16 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class AuthenticationManager : MonoBehaviour
+public class AuthenticationManager : SingletonDestroy<AuthenticationManager>
 {
-    private static AuthenticationManager _instance;
     [SerializeField] private Button loginButton;
     [SerializeField] private Button registerButton;
     [SerializeField] private TMP_InputField idField;
     [SerializeField] private TMP_InputField passwordField;
 
-    public static AuthenticationManager Instance
+    protected override void Awake()
     {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<AuthenticationManager>();
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject("AuthenticationManager");
-                    _instance = obj.AddComponent<AuthenticationManager>();
-                }
-            }
-            return _instance;
-        }
-    }
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        base.Awake();
         Init();
         loginButton.onClick.AddListener(Login);
         registerButton.onClick.AddListener(SignUp);

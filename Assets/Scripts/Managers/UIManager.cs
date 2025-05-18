@@ -5,43 +5,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
-    private static UIManager _instance;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Image[] lifeImages;
     [SerializeField] private Image[] boomImages;
     
-    public static UIManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<UIManager>();
-                
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject("UIManager");
-                    _instance = obj.AddComponent<UIManager>();
-                }
-            }
-            return _instance;
-        }
-    }
-    
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
     void Start()
     {
         // 점수 초기화

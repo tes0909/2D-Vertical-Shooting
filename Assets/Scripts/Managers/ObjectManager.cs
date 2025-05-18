@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectManager : MonoBehaviour
+public class ObjectManager : Singleton<ObjectManager>
 {
-    public static ObjectManager Instance { get; private set; }
-    
     public enum PoolType
     {
         EnemyMini1,
@@ -20,7 +18,8 @@ public class ObjectManager : MonoBehaviour
         ItemPowerUp,
         ItemBoom
     }
-    [System.Serializable]
+    
+    [Serializable]
     public class Pool
     {
         public PoolType key;
@@ -31,17 +30,15 @@ public class ObjectManager : MonoBehaviour
     public List<Pool> PoolList;
     private Dictionary<PoolType, Queue<GameObject>> PoolDictionary = new Dictionary<PoolType, Queue<GameObject>>();
     private Dictionary<PoolType, List<GameObject>> ActiveObject = new Dictionary<PoolType, List<GameObject>>(); // 활성화 오브젝트 리스트
-    
-    private void Awake()
+
+    protected override void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        base.Awake();
+        InitializePool();
+    }
+
+    private void InitializePool()
+    {
         foreach (var pool in PoolList)
         {
             Queue<GameObject> queue = new Queue<GameObject>();
