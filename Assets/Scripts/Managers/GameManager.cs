@@ -23,16 +23,12 @@ public class GameManager : MonoBehaviour
     
     [Header("Enemy Settings")]
     [SerializeField] private List<GameObject> enemies;
-    //[SerializeField] private List<ObjectManager.PoolType> enemiesTypes;
     public DataManager.MonsterDataList monsterDataList;
     
     [Header("Spawn Settings")]
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private float curSpawnTime;
     [SerializeField] private int currentSpawnIndex;
-    //[SerializeField] private float maxSpawnTime;
-    //[SerializeField] private float minSpawnTimeRange = 0.5f;
-    //[SerializeField] private float maxSpawnTimeRange = 3f;
     
     [Header("Default Settings")]
     [SerializeField] private GameObject gameOverPanel;
@@ -99,22 +95,22 @@ public class GameManager : MonoBehaviour
         
         Rigidbody2D rb2d = enemy.GetComponent<Rigidbody2D>();
         Enemy enemyClass = enemy.GetComponent<Enemy>();
-        enemyClass.player = player;
+        enemyClass.Player = player;
         
         switch (monsterData.spawnPoint)
         {
             case 5:
             case 6:
                 enemy.transform.rotation = Quaternion.Euler(0, 0, 90);
-                rb2d.velocity = new Vector2(enemyClass.speed * 1, 1);
+                rb2d.velocity = new Vector2(enemyClass.Speed * 1, 1);
                 break;
             case 7:
             case 8:
                 enemy.transform.rotation = Quaternion.Euler(0, 0, -90);
-                rb2d.velocity = new Vector2(enemyClass.speed * -1, 1);
+                rb2d.velocity = new Vector2(enemyClass.Speed * -1, 1);
                 break;
             default:
-                rb2d.velocity = Vector2.down * enemyClass.speed;
+                rb2d.velocity = Vector2.down * enemyClass.Speed;
                 break;
         }
     }

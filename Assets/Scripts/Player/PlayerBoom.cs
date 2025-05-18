@@ -5,27 +5,25 @@ using UnityEngine;
 
 public class PlayerBoom : MonoBehaviour
 {
-    private PlayerInputReceiver _playerInputReceiver;
-    
-    public int CurrentBoom { get; private set; }
-    public int MaxBoom { get; private set; }
+    private Player player;
+    public int CurrentBoom { get; private set; } = 1;
+    public int MaxBoom { get; private set; } = 2;
     public bool isBoomActive;
     [SerializeField] private GameObject boomEffect;
-    void Awake()
-    {
-        _playerInputReceiver = GetComponent<PlayerInputReceiver>();
-        CurrentBoom = 1;
-        MaxBoom = 2;
-    }
 
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+    }
+    
     private void OnEnable()
     {
-        _playerInputReceiver.OnBoomEvent += ActiveBoom;
+        player.PlayerInputReceiver.OnBoomEvent += ActiveBoom;
     }
     
     private void OnDisable()
     {
-        _playerInputReceiver.OnBoomEvent -= ActiveBoom;
+        player.PlayerInputReceiver.OnBoomEvent -= ActiveBoom;
     }
 
     private void ActiveBoom()

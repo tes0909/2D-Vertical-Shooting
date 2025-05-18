@@ -9,28 +9,27 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
-    
-    public int Power { get; private set; }
-    public int MaxPower { get; private set; }
+
+    public int Power { get; private set; } = 1;
+    public int MaxPower { get; private set; } = 3;
     
     private readonly float[] _offsets = { 0f, 0.25f, 0.45f };
-    private PlayerInputReceiver _playerInputReceiver;
-    
-    void Awake()
-    {
-        _playerInputReceiver = GetComponent<PlayerInputReceiver>();
-        Power = 1;
-        MaxPower = 3;
-    }
 
+    private Player player;
+
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+    }
+    
     private void OnEnable()
     {
-        _playerInputReceiver.OnShootEvent += Shooting;
+        player.PlayerInputReceiver.OnShootEvent += Shooting;
     }
 
     private void OnDisable()
     {
-        _playerInputReceiver.OnShootEvent -= Shooting;
+        player.PlayerInputReceiver.OnShootEvent -= Shooting;
     }
 
     private void Update()

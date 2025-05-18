@@ -67,7 +67,6 @@ public class ObjectManager : MonoBehaviour
             ActiveObject[key].Add(obj);
             return obj;
         }
-
         return null;
     }
 

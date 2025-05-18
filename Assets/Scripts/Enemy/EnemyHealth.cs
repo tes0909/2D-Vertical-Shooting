@@ -16,18 +16,17 @@ public class EnemyHealth : MonoBehaviour
     
     private int _damagedSpriteIndex = 1; // 피해 입었을 때 사용할 스프라이트 인덱스
     private int _defaultSpriteIndex; // 기본 인덱스
-    private SpriteRenderer _spriteRenderer;
-    private EnemyItemDrop _enemyItemDrop;
+    
+    private Enemy enemy;
     
     void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _enemyItemDrop = GetComponent<EnemyItemDrop>();
+        enemy = GetComponent<Enemy>();
     }
 
     private void OnEnable()
     {
-        _spriteRenderer.sprite = sprites[_defaultSpriteIndex];
+        enemy.SpriteRenderer.sprite = sprites[_defaultSpriteIndex];
         transform.rotation = Quaternion.identity;
     }
 
@@ -48,13 +47,13 @@ public class EnemyHealth : MonoBehaviour
         if(currentHealth <= 0) return;
         currentHealth -= damage;
 
-        _spriteRenderer.sprite = sprites[_damagedSpriteIndex];
+        enemy.SpriteRenderer.sprite = sprites[_damagedSpriteIndex];
         StartCoroutine(ReturnSprite());
 
         if (currentHealth <= 0)
         {
             GameManager.Instance.AddScore(enemyscore);
-            _enemyItemDrop.ItemDrop();
+            enemy.EnemyItemDrop.ItemDrop();
             GetComponent<ReturnObject>()?.ReturnObj();
             transform.rotation = Quaternion.identity;
         }
@@ -63,6 +62,6 @@ public class EnemyHealth : MonoBehaviour
     private IEnumerator ReturnSprite()
     {
         yield return new WaitForSeconds(returnSpriteDelay);
-        _spriteRenderer.sprite = sprites[_defaultSpriteIndex];
+        enemy.SpriteRenderer.sprite = sprites[_defaultSpriteIndex];
     }
 }

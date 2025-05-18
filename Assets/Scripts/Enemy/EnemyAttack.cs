@@ -28,7 +28,7 @@ public abstract class EnemyAttack : MonoBehaviour
         GameObject bullet = ObjectManager.Instance.GetObject(bulletPrefab);
         bullet.transform.position = position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        Vector3 direction = _enemy.player.transform.position - transform.position;
+        Vector3 direction = _enemy.Player.transform.position - transform.position;
         rb.velocity = direction.normalized * bulletSpeed;
     }
 
