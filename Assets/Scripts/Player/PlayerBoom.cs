@@ -18,7 +18,14 @@ public class PlayerBoom : MonoBehaviour
     
     private void OnEnable()
     {
-        player.PlayerInputReceiver.OnBoomEvent += ActiveBoom;
+        StartCoroutine(BoomEvent());
+    }
+
+    IEnumerator BoomEvent()
+    {
+        while (player == null || player.PlayerInputReceiver == null)
+            yield return null;
+        player.PlayerInputReceiver.OnBoomEvent += ActiveBoom;    
     }
     
     private void OnDisable()

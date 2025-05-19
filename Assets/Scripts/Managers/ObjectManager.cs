@@ -16,7 +16,12 @@ public class ObjectManager : Singleton<ObjectManager>
         EnemyBullet2,
         ItemGoldCoin,
         ItemPowerUp,
-        ItemBoom
+        ItemBoom,
+        BossBullet1,
+        BossBullet2,
+        BossBullet3,
+        BossBullet4,
+        EnemyBoss
     }
     
     [Serializable]

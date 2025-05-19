@@ -21,10 +21,17 @@ public class PlayerShooting : MonoBehaviour
     {
         player = GetComponent<Player>();
     }
-    
+
     private void OnEnable()
     {
-        player.PlayerInputReceiver.OnShootEvent += Shooting;
+        StartCoroutine(ShootEvent());
+    }
+
+    IEnumerator ShootEvent()
+    {
+        while (player == null || player.PlayerInputReceiver == null)
+            yield return null;
+        player.PlayerInputReceiver.OnShootEvent += Shooting;    
     }
 
     private void OnDisable()

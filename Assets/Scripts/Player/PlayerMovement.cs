@@ -16,7 +16,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        player.PlayerInputReceiver.OnMoveEvent += Move;
+        StartCoroutine(MoveEvent());
+    }
+
+    IEnumerator MoveEvent()
+    {
+        while (player == null || player.PlayerInputReceiver == null)
+            yield return null;
+        player.PlayerInputReceiver.OnMoveEvent += Move;    
     }
 
     private void OnDisable()

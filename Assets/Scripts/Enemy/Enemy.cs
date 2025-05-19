@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public EnemyHealth EnemyHealth { get; private set; }
     public EnemyItemDrop EnemyItemDrop { get; private set; }
     public float Speed { get; private set; } = 3f;
-    public GameObject Player { get; set; }
+    public GameObject Target { get; set; }
     
     void Awake()
     {
