@@ -10,7 +10,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float curShotDelay;
     [SerializeField] private float maxShotDelay;
 
-    public int Power { get; private set; } = 1;
+    public int Power { get; private set; } = 2;
     public int MaxPower { get; private set; } = 3;
     
     private readonly float[] _offsets = { 0f, 0.25f, 0.45f };
@@ -70,6 +70,7 @@ public class PlayerShooting : MonoBehaviour
     private void Shoot(ObjectManager.PoolType bulletPrefab, Vector3 position, Quaternion rotation)
     {
         GameObject bullet = ObjectManager.Instance.GetObject(bulletPrefab);
+        Debug.Log(bullet);
         bullet.transform.position = position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.up * bulletSpeed;

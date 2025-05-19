@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6300381870865938788}
   - component: {fileID: 6438432131120328377}
   - component: {fileID: 1819344196973317362}
+  - component: {fileID: -3372583163665219868}
   m_Layer: 0
   m_Name: Enemy_Boss
   m_TagString: Enemy
@@ -183,3 +184,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e543d9437bec62e408905e379e206c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3372583163665219868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852165473944693313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cc06efbeb889742b20ab54132eb1d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 14
