@@ -8,8 +8,9 @@ public class DataManager : Singleton<DataManager>
 {
     public void SaveData<T>(T saveData)
     {
-        string json = JsonUtility.ToJson(saveData);
-        File.WriteAllText(Application.persistentDataPath + $"/{typeof(T)}.txt", json);
+        string json = JsonUtility.ToJson(saveData, true);
+        File.WriteAllText(Application.persistentDataPath + $"/{typeof(T)}.json", json);
+        Debug.Log(Application.persistentDataPath + $"/{typeof(T)}.json");
     }
     
     public T LoadData<T>()

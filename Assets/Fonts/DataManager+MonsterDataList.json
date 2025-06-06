@@ -1,0 +1,39 @@
+{
+    "monsterData": [
+        {
+            "spawnDelay": 0.4000000059604645,
+            "spawnPoint": 2,
+            "type": 0
+        },
+        {
+            "spawnDelay": 0.4000000059604645,
+            "spawnPoint": 2,
+            "type": 0
+        },
+        {
+            "spawnDelay": 0.4000000059604645,
+            "spawnPoint": 2,
+            "type": 0
+        },
+        {
+            "spawnDelay": 0.4000000059604645,
+            "spawnPoint": 2,
+            "type": 0
+        },
+        {
+            "spawnDelay": 2.0,
+            "spawnPoint": 2,
+            "type": 1
+        },
+        {
+            "spawnDelay": 2.0,
+            "spawnPoint": 2,
+            "type": 1
+        },
+        {
+            "spawnDelay": 4.0,
+            "spawnPoint": 2,
+            "type": 14
+        }
+    ]
+}

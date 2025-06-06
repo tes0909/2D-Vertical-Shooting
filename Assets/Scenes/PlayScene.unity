@@ -1704,7 +1704,7 @@ GameObject:
   - component: {fileID: 1081981885}
   - component: {fileID: 1081981884}
   m_Layer: 5
-  m_Name: Game Over Text
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2511,7 +2511,7 @@ GameObject:
   - component: {fileID: 1749806908}
   - component: {fileID: 1749806907}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GameRetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2858,7 +2858,7 @@ GameObject:
   - component: {fileID: 1818416390}
   - component: {fileID: 1818416389}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GameRetryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
