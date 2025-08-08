@@ -6,8 +6,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class SoundOptionUI : MonoBehaviour
+public class UIPopupSetting : UIPopup
 {
+    [SerializeField] private Button exitButton;
+    
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
@@ -18,6 +20,8 @@ public class SoundOptionUI : MonoBehaviour
     
     void Start()
     {
+        exitButton.onClick.AddListener(() => UIManager.Instance.ClosePopup<UIPopupSetting>());
+        
         // 초기 값
         masterSlider.value = SoundManager.Instance.GetMasterVolume() * 0.3f;
         bgmSlider.value = SoundManager.Instance.GetBGMVolume() * 0.3f;

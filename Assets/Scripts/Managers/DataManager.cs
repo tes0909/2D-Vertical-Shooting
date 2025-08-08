@@ -15,7 +15,7 @@ public class DataManager : Singleton<DataManager>
     
     public T LoadData<T>()
     {
-        string loadData = File.ReadAllText(Application.persistentDataPath + $"/{typeof(T)}.txt");
+        string loadData = File.ReadAllText(Application.persistentDataPath + $"/{typeof(T)}.json");
         return JsonUtility.FromJson<T>(loadData);
     }
 

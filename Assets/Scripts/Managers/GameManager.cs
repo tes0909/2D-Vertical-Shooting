@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
-    [FormerlySerializedAs("player")]
     [Header("Player Settings")] 
     [SerializeField] private GameObject target;
 
@@ -29,16 +28,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private float curSpawnTime;
     [SerializeField] private int currentSpawnIndex;
-    
-    [Header("Default Settings")]
-    [SerializeField] private GameObject gameOverPanel;
-    private Button Restart;
 
     private void Start()
     {
-        Restart = gameOverPanel.GetComponentInChildren<Button>();
-        Restart.onClick.AddListener(GameRetry);
-        
         DataManager.Instance.SaveData(monsterDataList);
         //monsterDataList = DataManager.Instance.LoadData<DataManager.MonsterDataList>();
     }
@@ -122,11 +114,11 @@ public class GameManager : Singleton<GameManager>
 
     public void GameOver()
     {
-        gameOverPanel.SetActive(true);
+        UIManager.Instance.OpenPopup<UIPopupGameOver>();
         Time.timeScale = 0f;
     }
 
-    private void GameRetry()
+    public void GameRetry()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

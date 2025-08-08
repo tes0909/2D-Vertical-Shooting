@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneLoader : MonoBehaviour
+public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private Button startButton;
     [SerializeField] private Button settingButton;
@@ -24,7 +24,7 @@ public class SceneLoader : MonoBehaviour
 
     private void OpenSettings()
     {
-        Debug.Log("설정창 열림");   
+        UIManager.Instance.OpenPopup<UIPopupSetting>();
     }
     
     private void GameEnd()

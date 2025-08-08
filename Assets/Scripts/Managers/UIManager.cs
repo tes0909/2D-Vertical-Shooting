@@ -1,48 +1,70 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// UI 생성과 제거를 중앙에서 관리하는 싱글톤 매니저
+/// </summary>
 public class UIManager : Singleton<UIManager>
-{
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private Image[] lifeImages;
-    [SerializeField] private Image[] boomImages;
-    
-    void Start()
-    {
-        // 점수 초기화
-        ScoreUpdateUI(GameManager.Instance.PlayerScore);
+{ 
+    private Dictionary<string, UIBase> uiDict = new();
+
+    /// <summary>
+    /// 팝업 열기 (보이기)
+    /// </summary>
+    public T OpenPopup<T>() where T : UIBase
+    { 
+        string uiName = typeof(T).Name; // 제네릭 타입 T의 클래스 이름을 문자열로 가져옴
         
-        // UI 초기화
-        LifeUpdateUI(GameManager.Instance.PlayerLife);
-
-        GameManager.Instance.OnScoreChanged += ScoreUpdateUI;
-        GameManager.Instance.OnLifeChanged += LifeUpdateUI;
-    }
-    
-
-    private void ScoreUpdateUI(int score)
-    {
-        scoreText.text = $"점수: {score:N0}";
-    }
-
-    private void LifeUpdateUI(int lifePoints)
-    {
-        for (int i = 0; i < lifeImages.Length; i++)
+        // 이미 있는 경우 재사용
+        if (uiDict.TryGetValue(uiName, out var existing))
         {
-            lifeImages[i].gameObject.SetActive(i < lifePoints);
+            existing.Open();
+            return (T)existing;
+        }
+        
+        UIBase prefab = Resources.Load<UIBase>($"UI/{uiName}");
+        
+        UIBase ui = Util.InstantiateUI(prefab, transform);
+        ui.name = uiName;
+        ui.Open();
+        uiDict.Add(uiName, ui);
+
+        return (T)ui;
+    }
+
+    /// <summary>
+    /// 제네릭으로 팝업 닫기
+    /// </summary>
+    public void ClosePopup<T>() where T : UIBase
+    {
+        string uiName = typeof(T).Name;
+        ClosePopup(uiName);
+    }
+
+    /// <summary>
+    /// 이름으로 팝업 닫기
+    /// </summary>
+    private void ClosePopup(string uiName)
+    {
+        if (uiDict.TryGetValue(uiName, out var ui))
+        {
+            ui.Close();
         }
     }
 
-    public void BoomUpdateUI(int boomPoints)
+    public T GetUI<T>() where T : UIBase
     {
-        for (int i = 0; i < boomImages.Length; i++)
+        string uiName = typeof(T).Name;
+
+        if (uiDict.TryGetValue(uiName, out var ui))
         {
-            boomImages[i].gameObject.SetActive(i < boomPoints);
+            return (T)ui;
         }
-        Debug.Log($"LifePoint: {boomPoints}");
+        Debug.LogError($"{uiName} is not found");
+        return null;
     }
 }

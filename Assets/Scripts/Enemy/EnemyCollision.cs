@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyCollision : MonoBehaviour
 {
     private Enemy enemy;
-    private string _borderBullet = "BorderBullet";
-    private string _playerBullet = "PlayerBullet";
+    private const string BorderBullet = "BorderBullet";
+    private const string PlayerBullet = "PlayerBullet";
     
     void Awake()
     {
@@ -15,12 +15,12 @@ public class EnemyCollision : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(_borderBullet)) // 외벽과 충돌
+        if (other.CompareTag(BorderBullet)) // 외벽과 충돌
         {
             GetComponent<ReturnObject>()?.ReturnObj(); // => 몬스터 반환
             transform.rotation = Quaternion.identity;
         }
-        else if (other.CompareTag(_playerBullet)) // 플레이어 총알
+        else if (other.CompareTag(PlayerBullet)) // 플레이어 총알
         {
             Bullet bullet = other.GetComponent<Bullet>();
             enemy.EnemyHealth.TakeDamaged(bullet.damage);

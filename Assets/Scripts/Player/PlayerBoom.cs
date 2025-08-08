@@ -52,13 +52,13 @@ public class PlayerBoom : MonoBehaviour
     public void IncreaseBoom()
     {
         CurrentBoom++;
-        UIManager.Instance.BoomUpdateUI(CurrentBoom);
+        UIManager.Instance.GetUI<UIHUD>().BoomUpdateUI(CurrentBoom);
     }
 
     private void DecreaseBoom()
     {
         CurrentBoom--;
-        UIManager.Instance.BoomUpdateUI(CurrentBoom);
+        UIManager.Instance.GetUI<UIHUD>().BoomUpdateUI(CurrentBoom);
     }
     
     private IEnumerator OffBoomEffect()
