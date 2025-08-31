@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3500882392e8214ca854f0da65b1fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1493369733}
   playerLife: 3
   playerScore: 0
   spawnPoints:
