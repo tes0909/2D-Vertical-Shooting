@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2718,13 +2718,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3500882392e8214ca854f0da65b1fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1493369733}
+  player: {fileID: 0}
   playerLife: 3
   playerScore: 0
-  enemies:
-  - {fileID: 1901942492176667421, guid: 78f2fd6faee27934bb539fd94c7aaa03, type: 3}
-  - {fileID: 8535185593711337646, guid: 63113e99a20a98f4cb85c718e354abd5, type: 3}
-  - {fileID: 706036619452556702, guid: 8b1be63804e500843a43735842204840, type: 3}
+  spawnPoints:
+  - {fileID: 1237067318}
+  - {fileID: 2106595782}
+  - {fileID: 1758494232}
+  - {fileID: 161207117}
+  - {fileID: 1264580843}
+  - {fileID: 1997514274}
+  - {fileID: 562552938}
+  - {fileID: 527629557}
+  - {fileID: 793395970}
   monsterDataList:
     monsterData:
     - spawnDelay: 0.4
@@ -2748,18 +2754,6 @@ MonoBehaviour:
     - spawnDelay: 4
       spawnPoint: 2
       type: 14
-  spawnPoints:
-  - {fileID: 1237067318}
-  - {fileID: 2106595782}
-  - {fileID: 1758494232}
-  - {fileID: 161207117}
-  - {fileID: 1264580843}
-  - {fileID: 1997514274}
-  - {fileID: 562552938}
-  - {fileID: 527629557}
-  - {fileID: 793395970}
-  curSpawnTime: 0
-  currentSpawnIndex: 0
 --- !u!1 &1891382023
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// UI 생성과 제거를 중앙에서 관리하는 싱글톤 매니저
