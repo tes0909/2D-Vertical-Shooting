@@ -14,13 +14,13 @@ public class UIHUD : UIBase
     void Start()
     {
         // 점수 초기화
-        ScoreUpdateUI(GameManager.Instance.PlayerScore);
+        ScoreUpdateUI(InGameManager.Instance.PlayerScore);
         
         // UI 초기화
-        LifeUpdateUI(GameManager.Instance.PlayerLife);
+        LifeUpdateUI(InGameManager.Instance.PlayerLife);
 
-        GameManager.Instance.OnScoreChanged += ScoreUpdateUI;
-        GameManager.Instance.OnLifeChanged += LifeUpdateUI;
+        InGameManager.Instance.OnScoreChanged += ScoreUpdateUI;
+        InGameManager.Instance.OnLifeChanged += LifeUpdateUI;
     }
     
     private void ScoreUpdateUI(int score)

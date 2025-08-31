@@ -52,7 +52,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            GameManager.Instance.AddScore(enemyscore);
+            InGameManager.Instance.AddScore(enemyscore);
             enemy.EnemyItemDrop.ItemDrop();
             GetComponent<ReturnObject>()?.ReturnObj();
             transform.rotation = Quaternion.identity;

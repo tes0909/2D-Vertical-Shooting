@@ -8,10 +8,48 @@ using UnityEngine.UI;
 /// <summary>
 /// UI 생성과 제거를 중앙에서 관리하는 싱글톤 매니저
 /// </summary>
-public class UIManager : Singleton<UIManager>
+public class UIManager : SingletonDontDestroy<UIManager>, IBaseManager
 { 
     private Dictionary<string, UIBase> uiDict = new();
+    private List<UIBase> uiList = new();
 
+    public bool IsInitialized { get; private set; }
+    public void Init()
+    {
+        IsInitialized = true;
+        Debug.Log("UIManager is initialized");
+        
+        StartCoroutine(UIBaseInit());
+    }
+
+    private IEnumerator UIBaseInit()
+    {
+        yield return null;
+        
+        foreach (UIBase ui in uiList)
+        {
+            ui.Init();
+        }
+    }
+
+    public void RegisterUI(UIBase uiBase)
+    {
+        if (!uiList.Contains(uiBase))
+        {
+            uiList.Add(uiBase);
+
+            if (IsInitialized)
+            {
+                uiBase.Init(); // 매니저가 이미 초기화됐다면 등록 시 바로 Init
+            }
+        }
+    }
+
+    public void UnRegisterUI(UIBase uiBase)
+    {
+        uiList.Remove(uiBase);
+    }
+    
     /// <summary>
     /// 팝업 열기 (보이기)
     /// </summary>
@@ -64,7 +102,16 @@ public class UIManager : Singleton<UIManager>
         {
             return (T)ui;
         }
+
+        foreach (var uiBase in uiList)
+        {
+            if (uiBase is T typeUI)
+            {
+                return typeUI;
+            }
+        }
         Debug.LogError($"{uiName} is not found");
         return null;
     }
+
 }

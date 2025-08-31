@@ -17,15 +17,15 @@ public class PlayerCollision : MonoBehaviour
             if (isDamaged) return; // 중복 
             isDamaged = true;
             
-            GameManager.Instance.RemoveLife();
+            InGameManager.Instance.RemoveLife();
 
-            if (GameManager.Instance.PlayerLife == 0)
+            if (InGameManager.Instance.PlayerLife == 0)
             {
-                GameManager.Instance.GameOver();
+                InGameManager.Instance.GameOver();
             }
             else
             {
-                GameManager.Instance.PlayerRespawn();
+                InGameManager.Instance.PlayerRespawn();
             }
             gameObject.SetActive(false);
             other.GetComponent<ReturnObject>()?.ReturnObj();
@@ -38,19 +38,19 @@ public class PlayerCollision : MonoBehaviour
             switch (item.GetItemType())
             {
                 case Item.ItemType.Coin:
-                    GameManager.Instance.AddScore(item.CoinScore);
+                    InGameManager.Instance.AddScore(item.CoinScore);
                     break;
                 
                 case Item.ItemType.Power:
                     if(playerShooting.Power == playerShooting.MaxPower)
-                        GameManager.Instance.AddScore(item.PowerScore);
+                        InGameManager.Instance.AddScore(item.PowerScore);
                     else
                         playerShooting.IncreasePower();
                     break;
                 
                 case Item.ItemType.Boom:
                     if (playerBoom.CurrentBoom == playerBoom.MaxBoom)
-                        GameManager.Instance.AddScore(item.BoomScore);
+                        InGameManager.Instance.AddScore(item.BoomScore);
                     else
                         playerBoom.IncreaseBoom();
                     break;

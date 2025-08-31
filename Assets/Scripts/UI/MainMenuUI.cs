@@ -5,16 +5,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuUI : MonoBehaviour
+public class MainMenuUI : UIBase
 {
     [SerializeField] private Button startButton;
     [SerializeField] private Button settingButton;
     [SerializeField] private Button quitButton;
-    private void Start()
+
+    public override void Init()
     {
+        base.Init();
         startButton.onClick.AddListener(GameStart);
         settingButton.onClick.AddListener(OpenSettings);
         quitButton.onClick.AddListener(GameEnd);
+        Debug.Log("MainMenuUI Init");
     }
 
     private void GameStart()

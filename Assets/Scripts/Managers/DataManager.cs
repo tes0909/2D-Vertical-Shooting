@@ -32,5 +32,4 @@ public class DataManager : Singleton<DataManager>
         public int spawnPoint;
         public ObjectManager.PoolType type;
     }
-    
 }

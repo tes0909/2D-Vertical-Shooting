@@ -10,6 +10,6 @@ public class UIPopupGameOver : UIPopup
 
     private void Start()
     {
-        restartButton.onClick.AddListener(GameManager.Instance.GameRetry);
+        restartButton.onClick.AddListener(InGameManager.Instance.GameRetry);
     }
 }

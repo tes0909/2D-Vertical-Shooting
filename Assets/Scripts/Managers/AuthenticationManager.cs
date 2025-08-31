@@ -10,22 +10,16 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class AuthenticationManager : SingletonDestroy<AuthenticationManager>
+public class AuthenticationManager : SingletonDontDestroy<AuthenticationManager>, IBaseManager
 {
-    [SerializeField] private Button loginButton;
-    [SerializeField] private Button registerButton;
-    [SerializeField] private TMP_InputField idField;
-    [SerializeField] private TMP_InputField passwordField;
-
-    protected override void Awake()
+    public bool IsInitialized { get; private set; }
+    public void Init()
     {
-        base.Awake();
-        Init();
-        loginButton.onClick.AddListener(Login);
-        registerButton.onClick.AddListener(SignUp);
+        IsInitialized = true;
+        Initialize();
     }
 
-    private async void Init()
+    private async void Initialize()
     {
         await InitializeUnityServices();
     }
@@ -43,7 +37,7 @@ public class AuthenticationManager : SingletonDestroy<AuthenticationManager>
         }
     }
 
-    private async void Login()
+    public async void Login(TMP_InputField idField, TMP_InputField passwordField)
     {
         string id = idField.text.Trim();
         string password = passwordField.text.Trim();
@@ -70,7 +64,7 @@ public class AuthenticationManager : SingletonDestroy<AuthenticationManager>
         }
     }
 
-    private async void SignUp()
+    public async void SignUp(TMP_InputField idField, TMP_InputField passwordField)
     {
         string id = idField.text.Trim();
         string password = passwordField.text.Trim();
@@ -84,8 +78,7 @@ public class AuthenticationManager : SingletonDestroy<AuthenticationManager>
         try
         {
             await InitializeUnityServices();
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            await AuthenticationService.Instance.AddUsernamePasswordAsync(id, password);
+            await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync(id, password);
         }
         catch (AuthenticationException ex)
         {

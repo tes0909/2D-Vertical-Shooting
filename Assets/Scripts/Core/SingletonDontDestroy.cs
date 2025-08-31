@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonDestroy<T> : Singleton<T> where T : MonoBehaviour
+public class SingletonDontDestroy<T> : Singleton<T> where T : MonoBehaviour
 {
     protected override void Awake()
     {

@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43543779}
   m_Layer: 5
-  m_Name: Life Image
+  m_Name: Img_Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 90992391}
   - component: {fileID: 90992392}
   m_Layer: 5
-  m_Name: Boom Image 0
+  m_Name: Img_Boom 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 144924629}
   - component: {fileID: 144924628}
   m_Layer: 5
-  m_Name: Life Image 2
+  m_Name: Img_Life 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 172686497}
   - component: {fileID: 172686496}
   m_Layer: 5
-  m_Name: Life Image 0
+  m_Name: Img_Life 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 431187385}
   - component: {fileID: 431187384}
   m_Layer: 5
-  m_Name: Boom Image 1
+  m_Name: Img_Boom 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1124,7 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 602197849}
   m_Layer: 5
-  m_Name: Boom Image
+  m_Name: Img_Boom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2009,7 +2009,7 @@ GameObject:
   - component: {fileID: 1460299692}
   - component: {fileID: 1460299691}
   m_Layer: 5
-  m_Name: Life Image 1
+  m_Name: Img_Life 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2685,7 +2685,7 @@ GameObject:
   - component: {fileID: 1853061216}
   - component: {fileID: 1853061217}
   m_Layer: 0
-  m_Name: GameManger
+  m_Name: InGameManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2760,7 +2760,6 @@ MonoBehaviour:
   - {fileID: 793395970}
   curSpawnTime: 0
   currentSpawnIndex: 0
-  gameOverPanel: {fileID: 0}
 --- !u!1 &1891382023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,7 +3077,7 @@ GameObject:
   - component: {fileID: 2121296682}
   - component: {fileID: 2121296681}
   m_Layer: 5
-  m_Name: Score Text
+  m_Name: TMP_Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3209,8 +3208,8 @@ SceneRoots:
   - {fileID: 1595779088}
   - {fileID: 272689852}
   - {fileID: 1891382024}
+  - {fileID: 1791367972}
   - {fileID: 833218725}
   - {fileID: 160047204}
-  - {fileID: 1791367972}
   - {fileID: 693230057}
   - {fileID: 1493369735}
