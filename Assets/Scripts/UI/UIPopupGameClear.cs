@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class UIPopupGameClear : UIPopup
 {
     [SerializeField] private Button clearButton;
-    private readonly string startScene = "StartScene";
+    private readonly string mainScene = "MainScene";
 
     public override void Init()
     {
@@ -18,7 +18,7 @@ public class UIPopupGameClear : UIPopup
 
     private void Clear()
     {
-        SceneManager.LoadScene(startScene);
+        SceneManager.LoadScene(mainScene);
         UIManager.Instance.ClosePopup<UIPopupGameClear>();
     }
 }

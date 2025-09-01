@@ -44,7 +44,7 @@ public class SoundManager : SingletonDontDestroy<SoundManager>, IBaseManager
         LoadAllClips("Audio/BGM", bgmDict);
         LoadAllClips("Audio/SFX", sfxDict);
         
-        PlayBGM("test");
+        PlayBGM("BackgroundMusic");
     }
 
     private void LoadAllClips(string path, Dictionary<string, AudioClip> dict)
@@ -64,7 +64,9 @@ public class SoundManager : SingletonDontDestroy<SoundManager>, IBaseManager
     {
         if (bgmDict.TryGetValue(bgmName, out AudioClip clip))
         {
-            bgmSource.PlayOneShot(clip);
+            if (bgmSource.clip == clip && bgmSource.isPlaying) return; // 이미 같은 곡이면 무시
+
+            bgmSource.clip = clip;
             bgmSource.loop = true;
             bgmSource.Play();
         }

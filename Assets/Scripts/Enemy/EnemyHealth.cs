@@ -52,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            SoundManager.Instance.PlaySFX("Plane_Boom");
             InGameManager.Instance.AddScore(enemyscore);
             enemy.EnemyItemDrop.ItemDrop();
             GetComponent<ReturnObject>()?.ReturnObj();

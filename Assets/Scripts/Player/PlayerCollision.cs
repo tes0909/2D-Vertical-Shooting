@@ -21,10 +21,12 @@ public class PlayerCollision : MonoBehaviour
 
             if (InGameManager.Instance.PlayerLife == 0)
             {
+                SoundManager.Instance.PlaySFX("Plane_Boom");
                 InGameManager.Instance.GameOver();
             }
             else
             {
+                SoundManager.Instance.PlaySFX("Plane_Boom");
                 InGameManager.Instance.PlayerRespawn();
             }
             gameObject.SetActive(false);
@@ -35,6 +37,7 @@ public class PlayerCollision : MonoBehaviour
             Item item = other.gameObject.GetComponent<Item>();
             PlayerShooting playerShooting = GetComponent<PlayerShooting>();
             PlayerBoom playerBoom = GetComponent<PlayerBoom>();
+            
             switch (item.GetItemType())
             {
                 case Item.ItemType.Coin:
@@ -55,8 +58,27 @@ public class PlayerCollision : MonoBehaviour
                         playerBoom.IncreaseBoom();
                     break;
             }
+            SoundManager.Instance.PlaySFX("Item_Pickup");
             other.GetComponent<ReturnObject>()?.ReturnObj();
         }
+    }
+    
+    // 무적
+    public IEnumerator InvincibleCoroutine(float duration)
+    {
+        isDamaged = true; // 무적 시작 → 충돌 무시
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        float elapsed = 0;
+        while (elapsed < duration)
+        {
+            sr.enabled = !sr.enabled; // 깜빡임
+            yield return new WaitForSeconds(0.2f);
+            elapsed += 0.2f;
+        }
+
+        sr.enabled = true;
+        isDamaged = false; // 무적 해제
     }
 
 }

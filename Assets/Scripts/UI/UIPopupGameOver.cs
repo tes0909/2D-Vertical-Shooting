@@ -17,5 +17,6 @@ public class UIPopupGameOver : UIPopup
     private void GameRetry()
     {
         InGameManager.Instance.GameRetry();
+        SoundManager.Instance.PlayBGM("BackgroundMusic");
     }
 }

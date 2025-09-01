@@ -83,10 +83,10 @@
                 {
                     "name": "",
                     "id": "2e2d5ec6-7b83-4592-8617-64c3f83ee351",
-                    "path": "<Touchscreen>/primaryTouch/delta",
+                    "path": "<Touchscreen>/primaryTouch/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "TouchScreen",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -97,7 +97,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Boom",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -108,7 +108,7 @@
                     "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "TouchScreen",
                     "action": "Boom",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -644,6 +644,17 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "TouchScreen",
+            "bindingGroup": "TouchScreen",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
                     "isOptional": false,
                     "isOR": false
                 }

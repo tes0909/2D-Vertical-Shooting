@@ -52,7 +52,7 @@ public class AuthenticationManager : SingletonDontDestroy<AuthenticationManager>
         {
             await InitializeUnityServices();
             await AuthenticationService.Instance.SignInWithUsernamePasswordAsync(id, password);
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("MainScene");
         }
         catch (AuthenticationException ex)
         {
@@ -79,7 +79,7 @@ public class AuthenticationManager : SingletonDontDestroy<AuthenticationManager>
         {
             await InitializeUnityServices();
             await AuthenticationService.Instance.SignUpWithUsernamePasswordAsync(id, password);
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("MainScene");
         }
         catch (AuthenticationException ex)
         {

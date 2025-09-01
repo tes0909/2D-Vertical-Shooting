@@ -16,7 +16,9 @@ public class InGameManager : Singleton<InGameManager>
     public int PlayerLife => playerLife;
     public int PlayerScore => playerScore;
     public event Action<int> OnLifeChanged;
-    public event Action<int> OnScoreChanged; 
+    public event Action<int> OnScoreChanged;
+    private float spawnDelay = 2f;
+    private Vector3 spawnPoint = new Vector3(0f, -3.5f, 0f);
     
     [Header("Enemy Spawn Settings")]
     [SerializeField] private List<Transform> spawnPoints;
@@ -95,13 +97,17 @@ public class InGameManager : Singleton<InGameManager>
 
     private IEnumerator PlayerRespawnCoroutine()
     {
-        yield return new WaitForSeconds(2f);
-        player.transform.position = new Vector3(0, -3.5f);
-        player.gameObject.SetActive(true);
+        yield return new WaitForSeconds(spawnDelay);
 
-        // 중복 피격 방지
+        player.transform.position = spawnPoint;
+        // Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        // rb.velocity = Vector2.zero;
+        // rb.angularVelocity = 0f;
+        player.gameObject.SetActive(true);
+        
+        // 무적시작(3초)
         PlayerCollision playerCollision = player.GetComponent<PlayerCollision>();
-        playerCollision.isDamaged = false;
+        playerCollision.StartCoroutine(playerCollision.InvincibleCoroutine(3f));
     }
     #endregion
 

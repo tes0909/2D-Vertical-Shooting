@@ -20,6 +20,7 @@ public class Boss : MonoBehaviour
     private void Start()
     {
         stateMachine.ChangeState(stateMachine.EnterState);
+        SoundManager.Instance.PlayBGM("BossTime");
     }
 
     private void Update()

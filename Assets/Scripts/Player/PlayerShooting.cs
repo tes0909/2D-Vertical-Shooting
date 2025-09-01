@@ -46,6 +46,7 @@ public class PlayerShooting : MonoBehaviour
         if (curShotDelay >= maxShotDelay)
         {
             Shooting();
+            SoundManager.Instance.PlaySFX("shoot");
         }
     }
     
