@@ -42,6 +42,11 @@ public class PlayerShooting : MonoBehaviour
     private void Update()
     {
         Reload();
+
+        if (curShotDelay >= maxShotDelay)
+        {
+            Shooting();
+        }
     }
     
 

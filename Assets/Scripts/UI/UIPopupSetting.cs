@@ -17,9 +17,11 @@ public class UIPopupSetting : UIPopup
     [SerializeField] private TMP_InputField masterInputField;
     [SerializeField] private TMP_InputField bgmInputField;
     [SerializeField] private TMP_InputField sfxInputField;
-    
-    void Start()
+
+    public override void Init()
     {
+        base.Init();
+        
         exitButton.onClick.AddListener(() => UIManager.Instance.ClosePopup<UIPopupSetting>());
         
         // 초기 값

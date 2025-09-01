@@ -38,6 +38,8 @@ public class BossBaseState : IState
         {
             InGameManager.Instance.AddScore(stateMachine.BossScore);
             Object.Destroy(stateMachine.Boss.gameObject);
+            UIManager.Instance.OpenPopup<UIPopupGameClear>();
+            Time.timeScale = 0f;
         }
     }
 }

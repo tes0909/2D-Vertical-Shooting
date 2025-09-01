@@ -11,7 +11,7 @@ public abstract class UIBase : MonoBehaviour
     }
 
     /// <summary> 초기화 작업 </summary>
-    public virtual void Init(){ }
+    public virtual void Init(){}
 
     private void OnDestroy()
     {

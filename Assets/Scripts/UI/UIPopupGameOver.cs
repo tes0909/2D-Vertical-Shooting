@@ -8,8 +8,14 @@ public class UIPopupGameOver : UIPopup
 {
     [SerializeField] private Button restartButton;
 
-    private void Start()
+    public override void Init()
     {
-        restartButton.onClick.AddListener(InGameManager.Instance.GameRetry);
+        base.Init();
+        restartButton.onClick.AddListener(GameRetry);
+    }
+
+    private void GameRetry()
+    {
+        InGameManager.Instance.GameRetry();
     }
 }

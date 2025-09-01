@@ -22,10 +22,10 @@ public class PlayerInputReceiver : MonoBehaviour
         OnMoveEvent?.Invoke(input);
     }
 
-    public void OnShoot(InputValue value)
-    {
-        OnShootEvent?.Invoke();
-    }
+    // public void OnShoot(InputValue value)
+    // {
+    //     OnShootEvent?.Invoke();
+    // }
 
     public void OnBoom(InputValue value)
     {

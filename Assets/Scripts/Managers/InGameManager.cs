@@ -129,7 +129,9 @@ public class InGameManager : Singleton<InGameManager>
     public void GameRetry()
     {
         Time.timeScale = 1f;
+        UIManager.Instance.ClosePopup<UIPopupGameOver>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    
     #endregion
 }
