@@ -74,7 +74,7 @@ public class InGameManager : Singleton<InGameManager>
     
     private void SetEnemyMovement(GameObject enemy, float speed, int spawnPoint)
     {
-        Rigidbody2D rb2d = enemy.gameObject.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb2d = enemy.GetComponent<Rigidbody2D>();
         switch (spawnPoint)
         {
             case 5: case 6:

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class JetFly : MonoBehaviour
 {
-    [SerializeField] private float startY = -3.5f;
-    [SerializeField] private float endY = 6f;
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private Vector3 startPosition = new Vector3(0f, -3.5f, 0f);
+    [SerializeField] private Vector3 endPosition = new Vector3(0f, 6f, 0f);
+    private float lerpTime = 0.5f;
+    private float currentTime;
     void Start()
     {
         ResetPosition();
@@ -19,17 +20,20 @@ public class JetFly : MonoBehaviour
 
     void ResetPosition()
     {
-        Vector3 pos = transform.position;
-        pos.y = startY;
-        transform.position = pos;
+        transform.position = startPosition;
+        currentTime = 0f;
     }
 
     void Move()
     {
-        transform.Translate(Vector3.up * (speed * Time.deltaTime));
-
-        if (transform.position.y > endY)
+        if (currentTime < lerpTime)
         {
+            currentTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(startPosition, endPosition, currentTime / lerpTime);
+        }
+        else
+        {
+            transform.position = endPosition;
             ResetPosition();
         }
     }
