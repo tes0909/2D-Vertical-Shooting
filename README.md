@@ -4,13 +4,13 @@
 + 플랫폼 : PC(Windows), 모바일
 + 개발 기간 : 2025.04 ~ 2025.06
 + 개발 인원 : 1명
-+ 게임 소개
+### 게임 소개
   > 
 > 고전 2D 탄막 슈팅 게임 스트라이커즈 1945를
-2025년에 재탄생시킨 컨셉으로 제작하였습니다.
+현대적으로 재해석하여 제작하였습니다.
 > 
-> 플레이어는 맵에 입장하여 위에서 내려오는 원인모를 비행체를 처치하고
-아이템을 획득하여 마지막에 등장하는 보스를 처치하는 것을 목표로 합니다.
+> 플레이어는 스테이지에 진입해 위에서 내려오는 정체불명의 적 비행체를 처치하고
+아이템을 획득하여 마지막에 등장하는 보스를 격파하는 것을 목표로 합니다.
 
 ### 인게임
 ![Image](https://github.com/user-attachments/assets/425e7d1c-870f-4716-aa61-0969c4a63294)
@@ -274,7 +274,7 @@ public class ObjectManager : Singleton<ObjectManager>
   - 특정 풀 타입의 현재 활성 중인 모든 오브젝트 배열을 반환합니다.
 
 ### 보스 패턴 구현
-  + FSM 패턴 활용
+  + FSM 패턴 활용(Boss 행동을 상태(State) 단위로 관리)
 ### 저장, 로드, 커스텀 배치
   + JsonUtility & DataManager 활용
 ### 적 기체 공격
@@ -286,7 +286,7 @@ public class ObjectManager : Singleton<ObjectManager>
 ### 아이템 구현(코인, 파워업, 폭발)
 
 # 3. 에셋
-+ Aesprite 제작, 에셋스토어 다운로드
++ Aesprite 제작, 일부 에셋은 Unity Asset Store 사용
   
 # 4. 개발환경
 ### 데이터 관리
@@ -297,6 +297,6 @@ public class ObjectManager : Singleton<ObjectManager>
 + C#
 
 ### 개발 환경
-+ Unity 2022.3.17f1
++ Unity 2022.3.62f2
 + Visual Studio, Rider
 + Windows10, 11
