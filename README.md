@@ -129,7 +129,8 @@ public class AuthenticationManager : SingletonDontDestroy<AuthenticationManager>
   - 발생 가능 예외:
     - AuthenticationException(잘못된 계정 정보 등 인증 실패) / RequestFailedException(네트워크, 서버 불안정 등 요청 실패) 예외 처리 하였습니다.
 - 회원가입(SignUp)
-  - SignUpWithUsernamePasswordAsync(id, password) 사용하여 성공 시 자동으로 MainScene 이동 로그인과 동일한 예외 처리 구조
+  - SignUpWithUsernamePasswordAsync(id, password) 사용하여 성공 시 자동으로 MainScene 이동합니다.
+  - 로그인과 동일한 예외 처리 구조
 
 ### 플레이어 & 적 이동, 공격(옵저버 패턴)
 ```Csharp
